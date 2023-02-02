@@ -1,0 +1,151 @@
+:root {
+    /*color*/
+    --c33- : #333;
+    --eee- : #eee;
+    --green- : rgb(77, 188, 77);
+
+    /*rem*/
+    --rem_1- : .1rem;
+    --rem_2- : .2rem;
+    --rem_3- : .3rem;
+    --rem_4- : .4rem;
+    --rem_5- : .5rem;
+    --rem_6- : .6rem;
+    --rem_7- : .7rem;
+    --rem_8- : .8rem;
+    --rem_9- : .9rem;
+    --rem1- : 1rem;
+    --rem1_2- : 1.2rem;
+    --rem1_5- : 1.5rem;
+    --rem1_8- : 1.8rem;
+    --rem2- : 2rem;
+}
+
+.flex {
+    display: flex;
+}
+
+.green {
+    color: var(--green-);
+}
+
+#id,
+#paragraph,
+#paragraphe, 
+#paragraphes {
+    flex-basis: 100%;
+    display: none;
+    justify-content: center;
+}
+
+body {
+    background-color: var(--c33-);
+}
+
+.big_parent {
+    max-width: 30%;
+    margin: 5% auto;
+    padding: var(--rem_6-);
+    color: var(--eee-);
+    border: var(--rem_1-) solid var(--eee-);
+    box-shadow: 0 .3em .4em 0 var(--eee-);
+}
+
+.big_parent_section {
+    max-width: 70%;
+    margin: 0 auto;
+}
+
+.list {
+    list-style: none;
+    padding: 0;
+    justify-content: space-between;
+}
+
+.list>li {
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--eee-);
+    width: var(--rem1_8-);
+    height: var(--rem2-);
+    color: var(--c33-);
+}
+
+.list>.active {
+    background-color: var(--green-);
+    color: var(--eee-);
+}
+
+.parent_form {
+    color: var(--eee-);
+    max-width: 45%;
+    margin: 0 auto;
+    padding: var(--rem_6-);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.parent_form>form {
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: var(--rem_6-);
+    border: var(--rem_1-) solid var(--eee-);
+    border-radius: var(--rem1-)
+}
+
+.parent_form>form>h3 {
+    margin-block: var(--rem_3-);
+}
+
+.parent_form>form>input,
+.parent_form>form>select {
+    flex-basis: 100%;
+    padding: var(--rem_8-) var(--rem_6-);
+    background-color: var(--c33-);
+    border: var(--rem_1-) solid var(--eee-);
+    color: var(--eee-);
+    outline: none;
+}
+
+.back,
+.parent_form>form>.validate,
+.parent_form>form>input,
+.parent_form>form>select {
+    border-radius: var(--rem_4-);
+}
+
+.parent_form>form>input[type="file"] {
+    border: var(--rem_1-) solid var(--eee-);
+}
+
+.radio:not(:first-child),
+.parent_form>form>.validate,
+.parent_form>form>input:not(:first-child),
+.parent_form>form>select:not(:first-child) {
+    margin-top: var(--rem1_5-);
+}
+
+.back {
+    display: none;
+    flex-basis: 30%;
+    padding: var(--rem_8-) var(--rem_6-);
+    border: none;
+    background-color: var(--c33-);
+    border: var(--rem_1-) solid var(--eee-);
+    color: var(--eee-);
+    font-size: var(--rem1_2-);
+    cursor: pointer;
+}
+
+.parent_form>form>.validate {
+    flex-basis: 60%;
+    padding: var(--rem_8-) var(--rem_6-);
+    border: none;
+    background-color: var(--green-);
+    color: var(--eee-);
+    font-size: var(--rem1_2-);
+    cursor: pointer;
+}
