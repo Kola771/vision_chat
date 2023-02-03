@@ -87,7 +87,7 @@ function eventFour() {
 function ajaxOne() {
     let xmlhttp = new XMLHttpRequest();
     let evente = eventOne();
-    let reponse;
+    let reponse, res;
 
         xmlhttp.open("POST", "/register-controller/form-one", true);
 
@@ -97,14 +97,26 @@ function ajaxOne() {
           if (this.readyState == 4 && this.status == 200) {
             
             reponse = this.responseText;
-            if(reponse == "\r\n\nRemplissez tous les champs !!!") {
+            if(reponse !== "\r\n\nThat's good") {
+                res = reponse.split("\r\n\n").join("");
+                input.forEach(el => {
+                    if(el.name == res) {
+                        el.style = "border:2px solid red";
+                    } else {
+                        el.style = "border: .1rem solid #eee";
+                    }
+                })
                 p.style = "display:flex"
-                p.innerHTML = reponse;
+                p.innerHTML = "Remplissez tous les champs!!!";
             } else {
+                input.forEach(el => {
+                    el.style = "border:2px solid green"
+                })
                 solute(1);
                 li[count+1].classList.add("active");
                 li[count].classList.remove("active");
-                back.style = "display:block"
+                back.style = "display:block";
+                p.style = "display:none"
             }
           }
         };
@@ -114,7 +126,7 @@ function ajaxOne() {
 function ajaxTwo() {
     let xmlhttp = new XMLHttpRequest();
     let evente = eventTwo();
-    let reponse;
+    let reponse, res;
 
         xmlhttp.open("POST", "/register-controller/form-two", true);
 
@@ -124,9 +136,21 @@ function ajaxTwo() {
           if (this.readyState == 4 && this.status == 200) {
             reponse = this.responseText;
             if(reponse !== "\r\n\nThat's good") {
+                res = reponse.split("\r\n\n").join("");
+                input_two.forEach(el => {
+                    if(el.name == res) {
+                        el.style = "border:2px solid red";
+                    } else {
+                        el.style = "border: .1rem solid #eee";
+                    }
+                })
                 paragraph.style = "display:flex"
                 paragraph.innerHTML = reponse;
             } else {
+                input_two.forEach(el => {
+                    el.style = "border:2px solid green"
+                })
+                paragraph.style = "display:none"
                 solute(1);
                 li[count+2].classList.add("active");
                 li[count+1].classList.remove("active");
@@ -153,6 +177,10 @@ function ajaxThree() {
                 paragraphe.style = "display:flex"
                 paragraphe.innerHTML = reponse;
             } else {
+                select.forEach(el => {
+                    el.style = "border:2px solid green";
+                })
+                paragraphe.style = "display:none"
                 solute(1);
                 li[count+3].classList.add("active");
                 li[count+2].classList.remove("active");
@@ -176,14 +204,14 @@ function ajaxFour() {
           if (this.readyState == 4 && this.status == 200) {
             
             reponse = this.responseText;
-            if(reponse !== "\r\n\nThat's good") {
-                console.log(reponse);
+            if(reponse !== "\r\n\r\nThat's good") {
                 paragraphes.style = "display:flex"
                 paragraphes.innerHTML = reponse;
             } else {
-                // solute(1);
-                // li[count+3].classList.add("active");
-                // li[count+2].classList.remove("active");
+               setTimeout(() => {
+                    window.location.assign('/home/login')
+               }, 2000);
+               event_four.setAttribute("disabled", "disabled");
             }
           }
         };

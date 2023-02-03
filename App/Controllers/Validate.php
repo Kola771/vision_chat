@@ -14,7 +14,6 @@ class Validate {
     public $date;
     public $email;
     public $user_username;
-    public $wordkey;
     public $image;
     public $sexe;
     public $matrimonial;
@@ -43,8 +42,6 @@ class Validate {
             $this->user_username = $this->sanitaze($_POST["username"]);
             $this->user_username = $this->ucWords($this->user_username);
 
-            $this->wordkey = $this->sanitaze($_POST["wordkey"]);
-
             $this->sexe = $_POST["sexe"];
             $this->matrimonial = $_POST["matrimonial"];
 
@@ -55,13 +52,17 @@ class Validate {
 
             $this->role = "user";
 
-            $this->created_at = date("Y-m-d");
+            $this->created_at = date("Y-m-d h:i:s");
 
             $this->emptyInputs();
             $this->passWord($this->password);
             $this->passWord($this->confirm_password);
             $this->verifyPassword();
             
+            $this->usermodel = new UserModel();
+            $this->usermodel->insertUser($id, $this->firstname, $this->lastname, $this->date, $this->user_username, $this->email, $this->image, $this->sexe, $this->matrimonial, $this->password, $this->role, $this->status, $this->created_at);
+            echo "That's good";
+            exit;
         }
     }
 

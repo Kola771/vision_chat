@@ -1,3 +1,7 @@
+<?php 
+    @session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,21 +23,21 @@
             </ul>
         </section>
         <div class="parent_form flex">
-            <h2><span class="green">Vision</span> Chat Sign up</h2>
+            <h2><span class="green">Vision</span> Chat Inscription</h2>
             <form class="flex form_one">
                 <p id="id"></p>
                 <input type="text" name="firstname" id="firstname" placeholder="Firstname">
                 <input type="text" name="lastname" id="lastname" placeholder="Lastname">
                 <input type="date" name="date" id="date" placeholder="Date de naissance">
-                    <button class="event_one validate" type="submit">Validate</button>
+                    <button class="event_one validate" type="submit">Valider</button>
+                <p class="subscribe">Vous avez un compte ? <a href="/home/login">Connectez-vous</a></p>
             </form>
             <form class="flex form_two">
                 <h3>Crééz votre avatar</h3>
                 <p id="paragraph"></p>
                 <input type="email" name="useremail" id="useremail" placeholder="Addresse électronique">
                 <input type="text" name="username" id="username" placeholder="Username">
-                <input type="text" name="wordkey" id="wordkey" placeholder="Wordkey">
-                    <button class="event_two validate" type="submit">Validate</button>
+                    <button class="event_two validate" type="submit">Valider</button>
             </form>
             <form class="flex form_three">
                 <h3>Informations personnelles</h3>
@@ -51,14 +55,14 @@
                         <option value="Compliqué">Compliqué</option>
                         <option value="Union libre">Union libre</option>
                     </select>
-                    <button class="event_three validate" type="submit">Validate</button>
+                    <button class="event_three validate" type="submit">Valider</button>
             </form>
             <form class="flex form_four">
                 <h3>Password</h3>
                 <p id="paragraphes"></p>
                 <input type="password" name="password" id="password" placeholder="Password">
                 <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm password">
-                    <button class="event_four validate" type="submit">Validate</button>
+                    <button class="event_four validate" type="submit">Soumettre</button>
             </form>
         </div>
         <button class="back">Back</button>

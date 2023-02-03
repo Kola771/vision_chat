@@ -8,7 +8,7 @@ $url = $_SERVER["QUERY_STRING"];
 $router = new Router();
 
 //Ajout des formats de routes qu'on accepte
-$router->add('', ['controller' => 'Home', 'action' => 'index']);
+$router->add('', ['controller' => 'Home', 'action' => 'login']);
 $router->add("{controller}/{action}");
 $router->add("admin/{controller}/{action}");
 $router->add("admin/{controller}/{id:\d+}/{action}");
