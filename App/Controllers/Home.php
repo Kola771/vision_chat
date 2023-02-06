@@ -1,7 +1,15 @@
 <?php 
     class Home {
+        public function bell() {
+            require "../App/Views/Users/bell.php";
+        }
+
         public function index() {
             require "../App/Views/index.php";
+        }
+
+        public function message() {
+            require "../App/Views/Users/message.php";
         }
 
         public function friends() {

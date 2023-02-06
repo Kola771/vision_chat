@@ -51,6 +51,8 @@ class LoginController {
        if($count>0) {
         $password = password_verify($this->password, $res[0]["user_password"]);
         if($password === true) {
+            $this->usermodel->updateStatusActive($res[0]["user_id"]);
+            $res = $this->usermodel->verifyName($this->user_username);
             session_start();
             $_SESSION["id"] = $res[0]["user_id"];
             $_SESSION["firstname"] = $res[0]["user_firstname"];
@@ -91,6 +93,18 @@ class LoginController {
             else{
             return false;
         }
+    }
+
+    public function logOut() {
+        session_start();
+        $id = $_SESSION["id"];
+        //Instanciation de la classe UserModel
+        $this->usermodel = new UserModel();
+        $this->usermodel->updateStatus($id);
+        $res = $this->usermodel->verifyId($id);
+        session_unset();
+        session_destroy();
+        require "../App/Views/Users/login.php";
     }
 
 }

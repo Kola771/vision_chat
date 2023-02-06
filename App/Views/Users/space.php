@@ -26,7 +26,7 @@
                         <form class="flex add_file" action="#" method="post" enctype="multipart/form-data">
                             <input type="file" name="file[]" id="file" multiple>
                             <label for="file" class="file flex"><i class="fas fa-photo-video"></i></label>
-                            <button><i class="fa fa-check"></i></button>
+                            <button type="submit"><i class="fa fa-check"></i></button>
                         </form>
                     </div>
                     <div class="image_story">
@@ -100,6 +100,20 @@
                 <figure>
                         <img src="/assets/story/chapter.jpg" alt="chapter">
                     <figcaption>
+                        <h3>Username</h3>
+                        <p>1 ami(e)s en commum(s)</p>
+                        <form action="#">
+                            <input type="hidden" name="user_id" value="<?= $_SESSION["id"] ?>">
+                            <input type="hidden">
+                            <button>Ajouter cet utilisateur</button>
+                        </form>
+                    </figcaption>
+                </figure>
+                <figure>
+                        <img src="/assets/story/livre.jpg" alt="livre">
+                    <figcaption>
+                        <h3>Username</h3>
+                        <p>1 ami(e)s en commum(s)</p>
                         <form action="#">
                             <input type="hidden" name="user_id" value="<?= $_SESSION["id"] ?>">
                             <input type="hidden">
@@ -110,6 +124,20 @@
                 <figure>
                         <img src="/assets/story/chapter.jpg" alt="chapter">
                     <figcaption>
+                        <h3>Username</h3>
+                        <p>1 ami(e)s en commum(s)</p>
+                        <form action="#">
+                            <input type="hidden" name="user_id" value="<?= $_SESSION["id"] ?>">
+                            <input type="hidden">
+                            <button>Ajouter cet utilisateur</button>
+                        </form>
+                    </figcaption>
+                </figure>
+                <figure>
+                        <img src="/assets/story/livre.jpg" alt="livre">
+                    <figcaption>
+                        <h3>Username</h3>
+                        <p>1 ami(e)s en commum(s)</p>
                         <form action="#">
                             <input type="hidden" name="user_id" value="<?= $_SESSION["id"] ?>">
                             <input type="hidden">
@@ -120,6 +148,20 @@
                 <figure>
                         <img src="/assets/story/chapter.jpg" alt="chapter">
                     <figcaption>
+                        <h3>Username</h3>
+                        <p>1 ami(e)s en commum(s)</p>
+                        <form action="#">
+                            <input type="hidden" name="user_id" value="<?= $_SESSION["id"] ?>">
+                            <input type="hidden">
+                            <button>Ajouter cet utilisateur</button>
+                        </form>
+                    </figcaption>
+                </figure>
+                <figure>
+                        <img src="/assets/story/livre.jpg" alt="livre">
+                    <figcaption>
+                        <h3>Username</h3>
+                        <p>1 ami(e)s en commum(s)</p>
                         <form action="#">
                             <input type="hidden" name="user_id" value="<?= $_SESSION["id"] ?>">
                             <input type="hidden">
@@ -130,36 +172,8 @@
                 <figure>
                         <img src="/assets/story/chapter.jpg" alt="chapter">
                     <figcaption>
-                        <form action="#">
-                            <input type="hidden" name="user_id" value="<?= $_SESSION["id"] ?>">
-                            <input type="hidden">
-                            <button>Ajouter cet utilisateur</button>
-                        </form>
-                    </figcaption>
-                </figure>
-                <figure>
-                        <img src="/assets/story/chapter.jpg" alt="chapter">
-                    <figcaption>
-                        <form action="#">
-                            <input type="hidden" name="user_id" value="<?= $_SESSION["id"] ?>">
-                            <input type="hidden">
-                            <button>Ajouter cet utilisateur</button>
-                        </form>
-                    </figcaption>
-                </figure>
-                <figure>
-                        <img src="/assets/story/chapter.jpg" alt="chapter">
-                    <figcaption>
-                        <form action="#">
-                            <input type="hidden" name="user_id" value="<?= $_SESSION["id"] ?>">
-                            <input type="hidden">
-                            <button>Ajouter cet utilisateur</button>
-                        </form>
-                    </figcaption>
-                </figure>
-                <figure>
-                        <img src="/assets/story/chapter.jpg" alt="chapter">
-                    <figcaption>
+                        <h3>Username</h3>
+                        <p>1 ami(e)s en commum(s)</p>
                         <form action="#">
                             <input type="hidden" name="user_id" value="<?= $_SESSION["id"] ?>">
                             <input type="hidden">

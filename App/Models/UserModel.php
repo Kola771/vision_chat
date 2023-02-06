@@ -73,6 +73,78 @@ class UserModel extends Connexion {
         return $result;
     }
 
+    /**
+     * verifyId(), pour vérifier si il y a un utilisateur dans la bd ayant déjà cet id
+     */
+    public function verifyId($id) {
+        $this->id = $id;
+
+        $conn = $this->connect();
+
+        /**
+         * $sql, pour les requêtes vers la base de données
+         */
+        $sql = "SELECT * FROM `vision_chat`.users WHERE user_id = :id;";
+
+        /**
+         * $stmt, pour recupérer la requête préparée
+         */
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([
+            ":id" => $this->id
+        ]);
+        $result = $stmt->fetchAll();
+        return $result;
+    }
+
+    /**
+     * updateStatus()
+     */
+    public function updateStatus($id) {
+        $this->id = $id;
+        $status = "not_active";
+
+        $conn = $this->connect();
+
+        /**
+         * $sql, pour les requêtes vers la base de données
+         */
+        $sql = "UPDATE `vision_chat`.users SET `user_status`= :status WHERE user_id = :id;";
+
+        /**
+         * $stmt, pour recupérer la requête préparée
+         */
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([
+            ":id" => $this->id,
+            ":status" => $status
+        ]);
+    }
+
+    /**
+     * updateStatusActive()
+     */
+    public function updateStatusActive($id) {
+        $this->id = $id;
+        $status = "Active";
+
+        $conn = $this->connect();
+
+        /**
+         * $sql, pour les requêtes vers la base de données
+         */
+        $sql = "UPDATE `vision_chat`.users SET `user_status`= :status WHERE user_id = :id;";
+
+        /**
+         * $stmt, pour recupérer la requête préparée
+         */
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([
+            ":id" => $this->id,
+            ":status" => $status
+        ]);
+    }
+
    /**
      * insertUser(), pour insérer dans la bd des utilisateurs
      */
@@ -97,7 +169,7 @@ class UserModel extends Connexion {
         /**
          * $sql, pour les requêtes vers la base de données
          */
-        $sql = "INSERT INTO `vision_chat`.users VALUES(:id, :firstname, :lastname, :date, :user_username, :email, :user_image, :sexe, :situation, :password, :role, :status, :timesdate)";
+        $sql = "INSERT INTO `vision_chat`.users VALUES(:id, :firstname, :lastname, :date, :user_username, :email, :user_image, :sexe, :situation, NULL, :password, :role, :status, :timesdate)";
         
         /**
          * $stmt, pour recupérer la requête préparée

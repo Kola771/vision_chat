@@ -20,21 +20,21 @@
                 <li><a href="/home/profil"><i class="fa fa-user"></i> Profil</a></li>
                 <?php endif; ?>
                 <?php if($variable == "sms") : ?>
-                <li><a class="active" href="#"><i class=" 	fas fa-sms"></i> Messages</a></li>
+                <li><a class="active" href="/home/message"><i class="fas fa-sms"></i> Messages</a></li>
                 <?php else : ?>
-                <li><a href="#"><i class=" 	fas fa-sms"></i> Messages</a></li>
+                <li><a href="/home/message"><i class="fas fa-sms"></i> Messages</a></li>
                 <?php endif; ?>
                 <?php if($variable == "bell") : ?>
-                <li><a class="active" href="#"><i class="fas fa-bell"></i> Notifications</a></li>
+                <li><a class="active" href="/home/bell"><i class="fas fa-bell"></i> Notifications</a></li>
                 <?php else : ?>
-                <li><a href="#"><i class="fas fa-bell"></i> Notifications</a></li>
+                <li><a href="/home/bell"><i class="fas fa-bell"></i> Notifications</a></li>
                 <?php endif; ?>
                 <?php if($variable == "bars") : ?>
                 <li><a class="active" href="#"><i class="fas fa-bars"></i> Menu</a></li>
                 <?php else : ?>
                 <li><a href="#"><i class="fas fa-bars"></i> Menu</a></li>
                 <?php endif; ?>
-                <li><a href="/home/log"><i class="fas fa-arrow-alt-circle-right"></i> Déconnexion</a></li>
+                <li><a href="/login-controller/log-out"><i class="fas fa-arrow-alt-circle-right"></i> Déconnexion</a></li>
             </ul>
         </nav>
     </div>

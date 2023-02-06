@@ -22,14 +22,14 @@
                 <h2 class="order2"><?= $_SESSION["username"] ?></h2>
                 <img class="order1" src="/assets/users_pictures/<?= $_SESSION["image"] ?>" alt="livre">
                 <div class="order3 account flex">
-                    <a href="">Modifier son profil</a>
-                    <a href="">Voir mes informations personnelles</a>
+                    <a href="#">Modifier son profil</a>
+                    <a href="#">Voir mes informations personnelles</a>
                 </div>
             </section>
             <div class="container_section">
                 <section>
                     <h2>Quelque chose à écrire !!</h2>
-                    <form class="section_publish flex">
+                    <form class="section_publish flex" action="#" method="post" enctype="multipart/form-data">
                         <input type="hidden" name="user_id" value="<?= $_SESSION["id"] ?>">
                         <textarea name="publish" id="publish" cols="30" rows="10" placeholder="Publier un truc"></textarea>
                         <label for="file" class="picture"><i class="fas fa-photo-video"></i></label>
@@ -37,6 +37,8 @@
                         <button>Publier</button>
                     </form>
                 </section>
+
+                <a href="#" class="friends">200 ami(e)s</a>
 
                 <section class="publication flex">
                     <h2>Vos publications</h2>

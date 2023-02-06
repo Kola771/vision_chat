@@ -24,6 +24,90 @@
                 <button><i class="fa fa-search"></i> Rechercher</button>
             </form>
         </section>
+        <section class="flex friends_add">
+            <h2>Suggestion d'amis</h2>
+
+            <article class="flex">
+                <h3 class="order2">Username</h3>
+                <img class="order1" src="/assets/story/chapter.jpg" alt="chapter">
+                <p class="order3">1 ami(e)s en commum(s)</p>
+                <form action="#" class="flex order4">
+                    <input type="hidden" name="user_id" value="<?= $_SESSION["id"] ?>">
+                    <input type="hidden">
+                    <button>Ajouter</button>
+                </form>
+            </article>
+            <article class="flex">
+                <h3 class="order2">Username</h3>
+                <img class="order1" src="/assets/story/livre.jpg" alt="livre">
+                <p class="order3">1 ami(e)s en commum(s)</p>
+                <form action="#" class="flex order4">
+                    <input type="hidden" name="user_id" value="<?= $_SESSION["id"] ?>">
+                    <input type="hidden">
+                    <button>Ajouter</button>
+                </form>
+            </article>
+            <article class="flex">
+                <h3 class="order2">Username</h3>
+                <img class="order1" src="/assets/story/chapter.jpg" alt="chapter">
+                <p class="order3">1 ami(e)s en commum(s)</p>
+                <form action="#" class="flex order4">
+                    <input type="hidden" name="user_id" value="<?= $_SESSION["id"] ?>">
+                    <input type="hidden">
+                    <button>Ajouter</button>
+                </form>
+            </article>
+            <article class="flex">
+                <h3 class="order2">Username</h3>
+                <img class="order1" src="/assets/story/livre.jpg" alt="livre">
+                <p class="order3">1 ami(e)s en commum(s)</p>
+                <form action="#" class="flex order4">
+                    <input type="hidden" name="user_id" value="<?= $_SESSION["id"] ?>">
+                    <input type="hidden">
+                    <button>Ajouter</button>
+                </form>
+            </article>
+            <article class="flex">
+                <h3 class="order2">Username</h3>
+                <img class="order1" src="/assets/story/chapter.jpg" alt="chapter">
+                <p class="order3">1 ami(e)s en commum(s)</p>
+                <form action="#" class="flex order4">
+                    <input type="hidden" name="user_id" value="<?= $_SESSION["id"] ?>">
+                    <input type="hidden">
+                    <button>Ajouter</button>
+                </form>
+            </article>
+            <article class="flex">
+                <h3 class="order2">Username</h3>
+                <img class="order1" src="/assets/story/livre.jpg" alt="livre">
+                <p class="order3">1 ami(e)s en commum(s)</p>
+                <form action="#" class="flex order4">
+                    <input type="hidden" name="user_id" value="<?= $_SESSION["id"] ?>">
+                    <input type="hidden">
+                    <button>Ajouter</button>
+                </form>
+            </article>
+            <article class="flex">
+                <h3 class="order2">Username</h3>
+                <img class="order1" src="/assets/story/chapter.jpg" alt="chapter">
+                <p class="order3">1 ami(e)s en commum(s)</p>
+                <form action="#" class="flex order4">
+                    <input type="hidden" name="user_id" value="<?= $_SESSION["id"] ?>">
+                    <input type="hidden">
+                    <button>Ajouter</button>
+                </form>
+            </article>
+            <article class="flex">
+                <h3 class="order2">Username</h3>
+                <img class="order1" src="/assets/story/livre.jpg" alt="livre">
+                <p class="order3">1 ami(e)s en commum(s)</p>
+                <form action="#" class="flex order4">
+                    <input type="hidden" name="user_id" value="<?= $_SESSION["id"] ?>">
+                    <input type="hidden">
+                    <button>Ajouter</button>
+                </form>
+            </article>
+        </section>
     </main>
 
     <?php require("../App/Views/Users/footer.php"); ?>

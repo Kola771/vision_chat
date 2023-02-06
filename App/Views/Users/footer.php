@@ -23,7 +23,7 @@
                 <ul>
                     <li><a href="#">Modifier votre profil</a></li>
                     <li><a href="#">Changer la langue</a></li>
-                    <li><a href="/home/log">Déconnexion</a></li>
+                    <li><a href="/login-controller/log-out">Déconnexion</a></li>
                 </ul>
             </section>
         </div>
