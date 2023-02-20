@@ -1,5 +1,9 @@
-<?php 
+<?php
+
+require "../App/Controllers/StoryController.php";
     class Home {
+    public $storycontroller;
+
         public function bell() {
             require "../App/Views/Users/bell.php";
         }
@@ -25,6 +29,10 @@
         }
 
         public function space() {
+            $this->storycontroller = new StoryController();
+            $resultat = $this->storycontroller->selectUser();
+            $données = $this->storycontroller->selectUserNot();
+
             require "../App/Views/Users/space.php";
         }
 

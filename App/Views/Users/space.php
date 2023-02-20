@@ -1,6 +1,9 @@
 <?php
     @session_start();
     $variable = "space";
+    echo "<pre>";
+    var_dump($données);
+    echo "</pre>";
 ?>
 
 <?php if(isset($_SESSION["id"])) : ?>
@@ -23,44 +26,21 @@
                 <?php if(isset($_SESSION["id"])) : ?>
                     <div class="image_story height">
                         <img src="/assets/users_pictures/<?= $_SESSION["image"] ?>" alt="livre">
-                        <form class="flex add_file" action="#" method="post" enctype="multipart/form-data">
-                            <input type="file" name="file[]" id="file" multiple>
+                        <form class="flex add_file" action="/story-controller/send-picture" method="post" enctype="multipart/form-data">
+                            <input type="hidden" value="<?= $_SESSION["id"] ?>" name="user_id">
+                            <input type="file" name="file[]" id="file" multiple required>
                             <label for="file" class="file flex"><i class="fas fa-photo-video"></i></label>
                             <button type="submit"><i class="fa fa-check"></i></button>
                         </form>
                     </div>
-                    <div class="image_story">
-                        <img src="/assets/story/chapter.jpg" alt="livre">
+                    <div class="image_story <?= $_SESSION["id"] ?>">
+                        <img src="/assets/stories/<?= $resultat[0]["story_image"] ?>" alt="livre">
                         <h3>Votre story</h3>
                     </div>
                 <?php endif; ?>
                 
                 <div class="image_story">
                     <img src="/assets/story/livre.jpg" alt="livre">
-                    <h3>Username</h3>
-                </div>
-                <div class="image_story">
-                    <img src="/assets/story/livre.jpg" alt="livre">
-                    <h3>Username</h3>
-                </div>
-                <div class="image_story">
-                    <img src="/assets/story/chapter.jpg" alt="livre">
-                    <h3>Username</h3>
-                </div>
-                <div class="image_story">
-                    <img src="/assets/story/livre.jpg" alt="livre">
-                    <h3>Username</h3>
-                </div>
-                <div class="image_story">
-                    <img src="/assets/story/chapter.jpg" alt="chapter">
-                    <h3>Username</h3>
-                </div>
-                <div class="image_story">
-                    <img src="/assets/story/livre.jpg" alt="livre">
-                    <h3>Username</h3>
-                </div>
-                <div class="image_story">
-                    <img src="/assets/story/chapter.jpg" alt="chapter">
                     <h3>Username</h3>
                 </div>
             </div>

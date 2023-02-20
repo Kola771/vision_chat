@@ -97,8 +97,8 @@ function ajaxOne() {
           if (this.readyState == 4 && this.status == 200) {
             
             reponse = this.responseText;
-            if(reponse !== "\r\n\nThat's good") {
-                res = reponse.split("\r\n\n").join("");
+            if(reponse !== "\r\n\r\nThat's good") {
+                res = reponse.split("\r\n\r\n").join("");
                 input.forEach(el => {
                     if(el.name == res) {
                         el.style = "border:2px solid red";
@@ -135,8 +135,8 @@ function ajaxTwo() {
         xmlhttp.onreadystatechange = function() {
           if (this.readyState == 4 && this.status == 200) {
             reponse = this.responseText;
-            if(reponse !== "\r\n\nThat's good") {
-                res = reponse.split("\r\n\n").join("");
+            if(reponse !== "\r\n\r\nThat's good") {
+                res = reponse.split("\r\n\r\n").join("");
                 input_two.forEach(el => {
                     if(el.name == res) {
                         el.style = "border:2px solid red";
@@ -173,7 +173,7 @@ function ajaxThree() {
           if (this.readyState == 4 && this.status == 200) {
             
             reponse = this.responseText;
-            if(reponse !== "\r\n\nThat's good") {
+            if(reponse !== "\r\n\r\nThat's good") {
                 paragraphe.style = "display:flex"
                 paragraphe.innerHTML = reponse;
             } else {
@@ -193,7 +193,6 @@ function ajaxThree() {
 function ajaxFour() {
     let xmlhttp = new XMLHttpRequest();
     let evente = eventOne() + "&" + eventTwo() + "&" + eventThree() + "&" + eventFour();
-    console.log(evente);
     let reponse;
 
         xmlhttp.open("POST", "/validate/insert-data", true);

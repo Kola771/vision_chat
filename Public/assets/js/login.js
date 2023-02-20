@@ -18,7 +18,6 @@ function formulaire() {
 function ajaxForm() {
     let xmlhttp = new XMLHttpRequest();
     let evenement = formulaire();
-    console.log(evenement);
     let reponse;
 
         xmlhttp.open("POST", "/login-controller/formulaire", true);
@@ -30,7 +29,6 @@ function ajaxForm() {
             
             reponse = this.responseText;
             if(reponse !== "\r\n\r\nThat's good") {
-                console.log(reponse);
                 paragraph.style = "display:flex"
                 paragraph.innerHTML = reponse;
             } else {
