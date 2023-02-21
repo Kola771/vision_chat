@@ -32,6 +32,8 @@ require "../App/Controllers/StoryController.php";
             $this->storycontroller = new StoryController();
             $resultat = $this->storycontroller->selectUser();
             $données = $this->storycontroller->selectUserNot();
+            $data = $this->storycontroller->storyAll();
+            $datas = $this->storycontroller->storyDistinct();
 
             require "../App/Views/Users/space.php";
         }

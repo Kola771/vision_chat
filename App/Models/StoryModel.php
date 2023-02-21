@@ -52,4 +52,26 @@ class StoryModel extends Connexion {
             $resultat = $statement->fetchAll();
             return $resultat;
     }
+
+    public function storyDistinct()
+    {
+        $conn = $this->connect();
+            $requete_sql_server = "SELECT DISTINCT `story`.user_id, `users`.user_username FROM `vision_chat`.users, `vision_chat`.story WHERE `story`.user_id = `users`.user_id";
+            $statement = $conn->prepare($requete_sql_server);
+            $statement->execute([]);
+
+            $resultat = $statement->fetchAll();
+            return $resultat;
+    }
+
+    public function storyAll() 
+    {
+        $conn = $this->connect();
+            $requete_sql_server = "SELECT `story`.created_at, `story`.story_image, `story`.user_id, `users`.user_username FROM `vision_chat`.users, `vision_chat`.story WHERE `story`.user_id = `users`.user_id";
+            $statement = $conn->prepare($requete_sql_server);
+            $statement->execute([]);
+
+            $resultat = $statement->fetchAll();
+            return $resultat;
+    }
 }

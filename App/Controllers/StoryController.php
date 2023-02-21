@@ -135,7 +135,45 @@ class StoryController {
                 array_push($tableau, $data[$key]);
             }
         }
-        
         return $tableau;
+    }
+
+    public function storyAll()
+    {
+        $this->storymodel = new StoryModel();
+        $data = $this->storymodel->storyAll();
+        $tableau = [];
+        foreach($data as $key => $values) {
+
+            //je transforme en tableau la date de création du chapitre
+            $explode= explode(" ", $values["created_at"]);
+
+            //date de création
+            $date1 = $explode[0]; 
+
+            //date aujourd'hui
+            $date2 = date("Y-m-d");
+
+            $date1=date_create($date1);
+            $date2=date_create($date2);
+
+            //différence entre la date aujourd'hui et la date de création
+            $diff=date_diff($date1,$date2);
+
+            //la différence en jour entre la date aujourd'hui et la date de création
+            $difference = $diff->format("%a");
+
+            if($difference <= 1) {
+                array_push($tableau, $data[$key]);
+            }
+        }
+        return $tableau;
+    }
+
+    public function storyDistinct()
+    {
+        $this->storymodel = new StoryModel();
+        $datas = $this->storymodel->storyDistinct();
+        return $datas;
     }
 }

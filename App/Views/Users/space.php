@@ -1,9 +1,6 @@
 <?php
     @session_start();
     $variable = "space";
-    echo "<pre>";
-    var_dump($données);
-    echo "</pre>";
 ?>
 
 <?php if(isset($_SESSION["id"])) : ?>
@@ -32,17 +29,25 @@
                             <label for="file" class="file flex"><i class="fas fa-photo-video"></i></label>
                             <button type="submit"><i class="fa fa-check"></i></button>
                         </form>
+                        <?php if($resultat !== []) : ?>
+                        <form action="#" class="delete_story flex">
+                                <button type="submit" name="delete_story" value="<?= $_SESSION["id"] ?>"><i class="fa fa-trash"></i></button>
+                        </form>
+                    <?php endif; ?>
                     </div>
-                    <div class="image_story <?= $_SESSION["id"] ?>">
-                        <img src="/assets/stories/<?= $resultat[0]["story_image"] ?>" alt="livre">
-                        <h3>Votre story</h3>
-                    </div>
+                    <?php if($resultat !== []) : ?>
+                            <div class="image_story <?= $_SESSION["id"] ?>">
+                                <img src="/assets/stories/<?= $resultat[0]["story_image"] ?>" alt="livre">
+                                <h3>Votre story</h3>
+                            </div>
+                    <?php endif; ?>
                 <?php endif; ?>
-                
-                <div class="image_story">
-                    <img src="/assets/story/livre.jpg" alt="livre">
-                    <h3>Username</h3>
+                <?php foreach($données as $key => $values) : ?>
+                <div class="image_story stories <?= $values["user_id"] ?>">
+                    <img src="/assets/stories/<?= $values["story_image"] ?>" alt="livre">
+                    <h3><?= $values["user_username"] ?></h3>
                 </div>
+                <?php endforeach; ?>
             </div>
         </section>
         
@@ -69,6 +74,9 @@
                     </div>
                 </div>
                 <p class="description">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus veniam voluptas totam laborum expedita sequi veritatis ea eligendi dolorum ipsa explicabo aspernatur reiciendis ut, libero corrupti provident quis quibusdam tempore! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus hic sit, soluta facilis temporibus reprehenderit eveniet cupiditate aliquam ab fugit ex. Error ea alias, provident perspiciatis esse, et incidunt rem id laborum laudantium saepe, porro itaque velit mollitia odio. Officia ab deserunt, aliquam rerum debitis tempore molestias? Quo nemo deserunt eaque vel? Odio porro tempore impedit libero officiis facere, quidem ipsam a aspernatur, totam deserunt cum accusamus dolor laborum quisquam debitis cumque esse explicabo, atque quas. Laborum temporibus blanditiis explicabo nulla culpa. Tempora ab excepturi animi debitis accusamus magnam cum nihil saepe deleniti, provident numquam maiores repellat eligendi tenetur. Ab.<br>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus veniam voluptas totam laborum expedita sequi veritatis ea eligendi dolorum ipsa explicabo aspernatur reiciendis ut, libero corrupti provident quis quibusdam tempore! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus hic sit, soluta facilis temporibus reprehenderit eveniet cupiditate aliquam ab fugit ex. Error ea alias, provident perspiciatis esse, et incidunt rem id laborum laudantium saepe, porro itaque velit mollitia odio. Officia ab deserunt, aliquam rerum debitis tempore molestias? Quo nemo deserunt eaque vel? Odio porro tempore impedit libero officiis facere, quidem ipsam a aspernatur, totam deserunt cum accusamus dolor laborum quisquam debitis cumque esse explicabo, atque quas. Laborum temporibus blanditiis explicabo nulla culpa. Tempora ab excepturi animi debitis accusamus magnam cum nihil saepe deleniti, provident numquam maiores repellat eligendi tenetur. Ab.<br>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus veniam voluptas totam laborum expedita sequi veritatis ea eligendi dolorum ipsa explicabo aspernatur reiciendis ut, libero corrupti provident quis quibusdam tempore! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus hic sit, soluta facilis temporibus reprehenderit eveniet cupiditate aliquam ab fugit ex. Error ea alias, provident perspiciatis esse, et incidunt rem id laborum laudantium saepe, porro itaque velit mollitia odio. Officia ab deserunt, aliquam rerum debitis tempore molestias? Quo nemo deserunt eaque vel? Odio porro tempore impedit libero officiis facere, quidem ipsam a aspernatur, totam deserunt cum accusamus dolor laborum quisquam debitis cumque esse explicabo, atque quas. Laborum temporibus blanditiis explicabo nulla culpa. Tempora ab excepturi animi debitis accusamus magnam cum nihil saepe deleniti, provident numquam maiores repellat eligendi tenetur. Ab.<br>
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus veniam voluptas totam laborum expedita sequi veritatis ea eligendi dolorum ipsa explicabo aspernatur reiciendis ut, libero corrupti provident quis quibusdam tempore! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus hic sit, soluta facilis temporibus reprehenderit eveniet cupiditate aliquam ab fugit ex. Error ea alias, provident perspiciatis esse, et incidunt rem id laborum laudantium saepe, porro itaque velit mollitia odio. Officia ab deserunt, aliquam rerum debitis tempore molestias? Quo nemo deserunt eaque vel? Odio porro tempore impedit libero officiis facere, quidem ipsam a aspernatur, totam deserunt cum accusamus dolor laborum quisquam debitis cumque esse explicabo, atque quas. Laborum temporibus blanditiis explicabo nulla culpa. Tempora ab excepturi animi debitis accusamus magnam cum nihil saepe deleniti, provident numquam maiores repellat eligendi tenetur. Ab.
                 </p>
             </div>
@@ -187,13 +195,35 @@
                     </div>
                 </div>
                 <p class="description">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus veniam voluptas totam laborum expedita sequi veritatis ea eligendi dolorum ipsa explicabo aspernatur reiciendis ut, libero corrupti provident quis quibusdam tempore! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus hic sit, soluta facilis temporibus reprehenderit eveniet cupiditate aliquam ab fugit ex. Error ea alias, provident perspiciatis esse, et incidunt rem id laborum laudantium saepe, porro itaque velit mollitia odio. Officia ab deserunt, aliquam rerum debitis tempore molestias? Quo nemo deserunt eaque vel? Odio porro tempore impedit libero officiis facere, quidem ipsam a aspernatur, totam deserunt cum accusamus dolor laborum quisquam debitis cumque esse explicabo, atque quas. Laborum temporibus blanditiis explicabo nulla culpa. Tempora ab excepturi animi debitis accusamus magnam cum nihil saepe deleniti, provident numquam maiores repellat eligendi tenetur. Ab.<br>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus veniam voluptas totam laborum expedita sequi veritatis ea eligendi dolorum ipsa explicabo aspernatur reiciendis ut, libero corrupti provident quis quibusdam tempore! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus hic sit, soluta facilis temporibus reprehenderit eveniet cupiditate aliquam ab fugit ex. Error ea alias, provident perspiciatis esse, et incidunt rem id laborum laudantium saepe, porro itaque velit mollitia odio. Officia ab deserunt, aliquam rerum debitis tempore molestias? Quo nemo deserunt eaque vel? Odio porro tempore impedit libero officiis facere, quidem ipsam a aspernatur, totam deserunt cum accusamus dolor laborum quisquam debitis cumque esse explicabo, atque quas. Laborum temporibus blanditiis explicabo nulla culpa. Tempora ab excepturi animi debitis accusamus magnam cum nihil saepe deleniti, provident numquam maiores repellat eligendi tenetur. Ab.<br>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus veniam voluptas totam laborum expedita sequi veritatis ea eligendi dolorum ipsa explicabo aspernatur reiciendis ut, libero corrupti provident quis quibusdam tempore! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus hic sit, soluta facilis temporibus reprehenderit eveniet cupiditate aliquam ab fugit ex. Error ea alias, provident perspiciatis esse, et incidunt rem id laborum laudantium saepe, porro itaque velit mollitia odio. Officia ab deserunt, aliquam rerum debitis tempore molestias? Quo nemo deserunt eaque vel? Odio porro tempore impedit libero officiis facere, quidem ipsam a aspernatur, totam deserunt cum accusamus dolor laborum quisquam debitis cumque esse explicabo, atque quas. Laborum temporibus blanditiis explicabo nulla culpa. Tempora ab excepturi animi debitis accusamus magnam cum nihil saepe deleniti, provident numquam maiores repellat eligendi tenetur. Ab.<br>
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus veniam voluptas totam laborum expedita sequi veritatis ea eligendi dolorum ipsa explicabo aspernatur reiciendis ut, libero corrupti provident quis quibusdam tempore! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus hic sit, soluta facilis temporibus reprehenderit eveniet cupiditate aliquam ab fugit ex. Error ea alias, provident perspiciatis esse, et incidunt rem id laborum laudantium saepe, porro itaque velit mollitia odio. Officia ab deserunt, aliquam rerum debitis tempore molestias? Quo nemo deserunt eaque vel? Odio porro tempore impedit libero officiis facere, quidem ipsam a aspernatur, totam deserunt cum accusamus dolor laborum quisquam debitis cumque esse explicabo, atque quas. Laborum temporibus blanditiis explicabo nulla culpa. Tempora ab excepturi animi debitis accusamus magnam cum nihil saepe deleniti, provident numquam maiores repellat eligendi tenetur. Ab.
                 </p>
             </div>
         </section>
+        <?php foreach($datas as $key => $values) : ?>
+        <div class="modal animate affiche <?= $values["user_id"] ?>">
+        <h2><?= $values["user_username"] ?></h2>
+            <button type="reset" class="danger closes"><i class="fa fa-close"></i></button>
+                <div class="relative">
+                <?php foreach($data as $key => $value) : ?>
+                        
+                    <?php if($value["user_id"] == $values["user_id"]) : ?>
+                        <div class="absolutes">
+                            <img src="/assets/stories/<?= $value["story_image"] ?>" alt="livre">
+                        </div>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+                </div>
+                    <a class="solute left flex"><i class="fa fa-chevron-left"></i></a>
+                    <a class="solute right flex"><i class="fa fa-chevron-right"></i></a>
+        </div>
+        <?php endforeach; ?>
     </main>
 
     <?php require("../App/Views/Users/footer.php"); ?>
+    <script src="/assets/js/space.js"></script>
 </body>
 </html>
 
