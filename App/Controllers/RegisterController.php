@@ -1,7 +1,7 @@
 
 <?php
 require "../App/Controllers/Connexion.php";
-require "../App/Models/UserModel.php";
+require "../App/Models/User.php";
 class RegisterController {
 
     /**
@@ -119,7 +119,7 @@ class RegisterController {
     public function verifyControl() {
 
       //Instanciation de la classe UserModel
-      $this->usermodel = new UserModel();
+      $this->usermodel = new User();
       $res = $this->usermodel->verify($this->email, $this->user_username);
       $count = count($res);
 

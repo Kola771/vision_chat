@@ -21,7 +21,7 @@ require "../App/Controllers/StoryController.php";
         }
 
         public function login() {
-            require "../App/Views/Users/login.php";
+            require "../App/Views/Users/Beginning/login.phtml";
         }
 
         public function profil() {
@@ -45,6 +45,7 @@ require "../App/Controllers/StoryController.php";
             session_start();
             session_unset();
             session_destroy();
-            require "../App/Views/Users/login.php";
+            header("Location:/");
+            // require "../App/Views/Users/login.php";
         }
     }

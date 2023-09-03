@@ -1,3 +1,14 @@
+/* Public/css/styles.css */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Votre propre CSS peut être ajouté après les imports */
+body {
+    background-color: rgba(210, 215, 216, 0.575);
+    /* background-color: rgb(5, 42, 60); */
+  }
+
 :root {
     /*color*/
     --c33- : #333;

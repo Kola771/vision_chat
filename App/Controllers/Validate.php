@@ -1,7 +1,7 @@
 
 <?php
 require "../App/Controllers/Connexion.php";
-require "../App/Models/UserModel.php";
+require "../App/Models/User.php";
 class Validate {
 
     /**
@@ -59,7 +59,7 @@ class Validate {
             $this->passWord($this->confirm_password);
             $this->verifyPassword();
             
-            $this->usermodel = new UserModel();
+            $this->usermodel = new User();
             $this->usermodel->insertUser($id, $this->firstname, $this->lastname, $this->date, $this->user_username, $this->email, $this->image, $this->sexe, $this->matrimonial, $this->password, $this->role, $this->status, $this->created_at);
             echo "That's good";
             exit;

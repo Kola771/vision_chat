@@ -1,9 +1,9 @@
 <?php
 
 /**
- * class UserModel pour faire toutes les requêtes liées à la table users de la bd
+ * class User pour faire toutes les requêtes liées à la table users de la bd
  */
-class UserModel extends Connexion {
+class User extends Connexion {
 
     /**
      * $conn, variable pour instancier la classe Connexion et pour faire la connexion à la bd avec la fonction connect()

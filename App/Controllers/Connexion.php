@@ -17,7 +17,7 @@ class Connexion {
         /**
          * $PASSWORD
          */
-        $PASSWORD = "root";
+        $PASSWORD = "";
         $dsn = "mysql:host=$DB_HOST;dbname=$DB_NAME;charset=utf8mb4";
         try {
             /**

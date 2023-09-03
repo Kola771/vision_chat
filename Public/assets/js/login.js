@@ -1,49 +1,42 @@
 
-let form = document.querySelectorAll(".parent_form>form>input");
-let paragraph = document.getElementById("paragraph");
-let validate = document.querySelector(".validate");
-
-
-function formulaire() {
-    let arrayLike = [];
-    let requete;
-    form.forEach(el => {
-        arrayLike.push(el.name+ "=" +el.value)
-    })
-    requete = arrayLike.join("&");
-    return requete;
-}
-
-
-function ajaxForm() {
-    let xmlhttp = new XMLHttpRequest();
-    let evenement = formulaire();
-    let reponse;
-
-        xmlhttp.open("POST", "/login-controller/formulaire", true);
-
-        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-
-        xmlhttp.onreadystatechange = function() {
-          if (this.readyState == 4 && this.status == 200) {
-            
-            reponse = this.responseText;
-            if(reponse !== "\r\n\r\nThat's good") {
-                paragraph.style = "display:flex"
-                paragraph.innerHTML = reponse;
-            } else {
-                window.location.assign('/home/space');
-                validate.setAttribute("disabled", "disabled");
-            }
-          }
-        };
-        xmlhttp.send(evenement);
-}
-
-
-document.addEventListener("DOMContentLoaded", function() {
-     validate.addEventListener("click", (e) => {
+document.addEventListener("DOMContentLoaded", function () {
+    let paragraph = document.getElementById("paragraph");
+    let validate = document.querySelector(".validate");
+    validate.addEventListener("click", (e) => {
         e.preventDefault();
-        ajaxForm();
-     })
+
+        let username = document.getElementById("username");
+        let password = document.getElementById("password");
+        if(username.value.trim() !== '' && password.value.trim() !== '')
+        {
+
+            let data = {
+                nameOrEmail: username.value,
+                pass: password.value
+            }
+            data = JSON.stringify(data);
+            let options = {
+                header: {
+                    "content": "application/json"
+                },
+                body: data,
+                method: "post"
+            }
+    
+            fetch("/login-controller/formulaire", options).then(response => response.json())
+            .then(response => {
+                if(response.result)
+                {
+                    paragraph.classList.add("hidden");
+                    window.location.href = response.route;
+                } else {
+                    paragraph.innerHTML = response.error;
+                    paragraph.classList.remove("hidden");
+                }
+            })
+        } else {
+            paragraph.innerHTML = "Veuillez bien remplir tous les champs s'il vous plaît !!!";
+            paragraph.classList.remove("hidden");
+        }
+    })
 })
