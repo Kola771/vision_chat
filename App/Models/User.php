@@ -48,6 +48,24 @@ class User extends Connexion {
         $result = $stmt->fetchAll();
         return $result;
     }
+    public function verifyMail($email) {
+        $this->email = $email;
+
+        $conn = $this->connect();
+
+        /**
+         * $sql, pour les requêtes vers la base de données
+         */
+        $sql = "SELECT * FROM `vision_chat`.users WHERE user_email = ?;";
+
+        /**
+         * $stmt, pour recupérer la requête préparée
+         */
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([$this->email]);
+        $result = $stmt->fetchAll();
+        return $result;
+    }
 
     /**
      * verifyName(), pour vérifier si il y a un utilisateur dans la bd ayant déjà ses éléments là

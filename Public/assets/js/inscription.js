@@ -6,13 +6,16 @@ document.addEventListener("DOMContentLoaded", function() {
     let paragraph = document.getElementById("paragraph");
     let useremail = document.getElementById("useremail");
     let username = document.getElementById("username");
-    let genre = document.getElementsByName("genre");
+    let genre1 = document.getElementById("genre1");
+    let genre2 = document.getElementById("genre2");
+    let genre3 = document.getElementById("genre3");
+    let sexe = "";
     // let paragraphe = document.getElementById("paragraphe");
     // let paragraphes = document.getElementById("paragraphes");
     let back = document.querySelector(".back");
     let event_one = document.querySelector(".event_one");
     let event_two = document.querySelector(".event_two");
-    // let event_three = document.querySelector(".event_three");
+    let event_three = document.querySelector(".event_three");
     // let event_four = document.querySelector(".event_four");
     
     let show = 1;
@@ -25,6 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function Slides(number) {
         let i;
         let form = document.querySelectorAll(".form");
+        let val = document.querySelectorAll(".val");
         if(number > form.length) {
             show = ""
         }
@@ -36,8 +40,10 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         for(i = 0; i<form.length; i++) {
             form[i].classList.add("hidden");            
+            val[i].classList.add("hidden");            
         }
         form[show-1].classList.remove("hidden"); 
+        val[show-1].classList.remove("hidden"); 
     }
     
     function eventOne() {
@@ -49,8 +55,6 @@ document.addEventListener("DOMContentLoaded", function() {
         requete = arrayLike.join("&");
         return requete;
     }
-    
-    console.log(document.getElementsByName("genre").value);
     
      event_one.addEventListener("click", (e) => {
         e.preventDefault();
@@ -72,6 +76,8 @@ document.addEventListener("DOMContentLoaded", function() {
                         paragraph.innerHTML = "S'il vous plaît vous devez avoir minimum 12ans pour accéder à cette plateforme !!!";
                         paragraph.classList.remove("hidden");
                     } else {
+                        event_one.classList.add("hidden");
+                        event_two.classList.remove("hidden");
                         paragraph.classList.add("hidden");
                         back.classList.remove("hidden");
                         solute(1);
@@ -92,13 +98,70 @@ document.addEventListener("DOMContentLoaded", function() {
     
      event_two.addEventListener("click", (e) => {
         e.preventDefault();
-        console.log(genre.value);
+        if(genre1.checked)
+        {
+            sexe = genre1.value;
+        } else if(genre2.checked)
+        {
+            sexe = genre2.value;
+        } else if(genre3.checked)
+        {
+            sexe = genre3.value;
+        }
+        if(useremail.value.trim() !== "")
+        {
+            paragraph.classList.add("hidden");
+            if(username.value.trim() !== "")
+            {
+                paragraph.classList.add("hidden");
+                let data = {
+                    username: username.value,
+                    useremail: useremail.value
+                }
+                data = JSON.stringify(data);
+                let options = {
+                    header: {
+                        "content": "application/json"
+                    },
+                    body: data,
+                    method: "post"
+                }
+                fetch("/register-controller/verify-data", options).then(response => response.json())
+            .then(response => {
+                console.log(response);
+                if(response.result)
+                {
+                    if(sexe !== "")
+                    {
+                        paragraph.classList.add("hidden");
+                        event_one.classList.add("hidden");
+                        event_two.classList.add("hidden");
+                        event_three.classList.remove("hidden");
+                        solute(1);
+                    } else {
+                        paragraph.innerHTML = "Entrez votre genre !!!";
+                        paragraph.classList.remove("hidden");
+                    }
+
+                } else {
+                    paragraph.innerHTML = response.error;
+                    paragraph.classList.remove("hidden");
+                }
+            })
+            } else {
+                paragraph.innerHTML = "Entrez votre pseudo !!!";
+                paragraph.classList.remove("hidden");
+            }
+        } else {
+            paragraph.innerHTML = "Entrez votre adresse électronique !!!";
+            paragraph.classList.remove("hidden");
+        }
      })
     
-    //  event_three.addEventListener("click", (e) => {
-    //     e.preventDefault();
-    //     ajaxThree();
-    //  })
+     event_three.addEventListener("click", (e) => {
+        e.preventDefault();
+        console.log("right");
+     })
     
     //  event_four.addEventListener("click", (e) => {
     //     e.preventDefault();
