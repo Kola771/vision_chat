@@ -1,0 +1,145 @@
+<?php
+@session_start();
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/output.css">
+    <script src="/assets/js/tailwind.js"></script>
+    <title>DM | Connexion</title>
+</head>
+
+<body>
+    <div
+        class="max-w-[75%] sm:max-w-[50%] mt-[130px] md:mt-[200px] md:max-w-[90%] lg:max-w-[50%] md:h-[450px] lg:h-[500px] m-auto shadow-2xl md:flex md:justify-between md:bg-[url('/assets/stories/six.jpg')] md:bg-no-repeat bg-cover rounded">
+        <div class="hidden md:basis-[50%] md:flex md:justify-center md:items-center md:text-white">
+            <span
+                class="md:w-[80px] md:h-[80px] lg:w-[100px] lg:h-[100px] md:bg-blue-600 lg:shadow-xl md:flex md:justify-center md:items-center md:rounded-full md:text-3xl">
+                DM
+            </span>
+        </div>
+        <div class="md:basis-[50%] bg-gray-200 md:rounded-l-full md:border-t-[1px] md:border-b-[1px] md:border-[#eee]">
+            <div class="md:mt-[70px] md:mr-[10px] md:max-w-[70%] m-auto p-1 flex flex-col">
+                <form>
+                    <div class="form p-4 flex flex-col gap-6 md:gap-4 md:p-2 md:px-4 rounded text-[14px]">
+                        <div id="paragraph" class="md:mt-[-20px] hidden"></div>
+                        <div class="md:hidden basis-[50%] flex justify-center items-center text-white">
+                            <span
+                                class="w-[60px] h-[60px] bg-blue-600 lg:shadow-xl flex justify-center items-center rounded-full text-2xl">
+                                DM
+                            </span>
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <label for="firstname" class="font-bold text-red-500">Nom* :</label>
+                            <input type="text" name="firstname" id="firstname"
+                                class="p-2 border-[1px] border-black bg-gray-200 rounded focus:outline-none focus:ring-1 focus:ring-blue-300"
+                                placeholder="Votre nom de famille" required>
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <label for="lastname" class="font-bold text-red-500">Prénom(s)* :</label>
+                            <input type="text" name="lastname" id="lastname"
+                                class="p-2 border-[1px] border-black bg-gray-200 rounded focus:outline-none focus:ring-1 focus:ring-blue-300"
+                                placeholder="Votre prénom">
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <label for="date" class="font-bold text-red-500">Date de naissance* :</label>
+                            <input type="date" name="date" id="date"
+                                class="p-2 border-[1px] border-black bg-gray-200 rounded focus:outline-none focus:ring-1 focus:ring-blue-300"
+                                placeholder="Votre date de naissance">
+                        </div>
+                    </div>
+                    <div class="form hidden form-2 p-4 flex flex-col gap-6 md:gap-4 md:p-2 md:px-4 rounded text-[14px]">
+                        <div class="md:hidden basis-[50%] flex justify-center items-center text-white">
+                            <span
+                                class="w-[60px] h-[60px] bg-blue-600 lg:shadow-xl flex justify-center items-center rounded-full text-2xl">
+                                DM
+                            </span>
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <label for="useremail" class="font-bold text-red-500">Adresse électronique* :</label>
+                            <input type="email" name="useremail" id="useremail"
+                                class="p-2 border-[1px] border-black bg-gray-200 rounded focus:outline-none focus:ring-1 focus:ring-blue-300"
+                                placeholder="Votre adresse électronique" required>
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <label for="username" class="font-bold text-red-500">Pseudo(s)* :</label>
+                            <input type="text" name="username" id="username"
+                                class="p-2 border-[1px] border-black bg-gray-200 rounded focus:outline-none focus:ring-1 focus:ring-blue-300"
+                                placeholder="Votre pseudo">
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <label class="font-bold text-red-500">Votre genre* :</label>
+                            <div class="flex justify-between">
+                                <label for="genre1"
+                                    class=" flex justify-between p-1.5 items-center basis-[25%] bg-gray-200 rounded cursor-pointer hover:border-blue-500 hover:text-blue-500 border-[1px] border-black">
+                                    <input type="radio" id="genre1" name="genre" value="Masculin"> M
+                                </label>
+                                <label for="genre2"
+                                    class=" flex justify-between p-1.5 items-center basis-[25%] bg-gray-200 rounded cursor-pointer hover:border-blue-500 hover:text-blue-500 border-[1px] border-black">
+                                    <input type="radio" id="genre2" name="genre" value="Féminin"> F
+                                </label>
+                                <label for="genre3"
+                                    class=" flex justify-between p-1.5 items-center basis-[25%] bg-gray-200 rounded cursor-pointer hover:border-blue-500 hover:text-blue-500 border-[1px] border-black">
+                                    <input type="radio" id="genre3" name="genre" value="Autres"> Autres
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form hidden form-3 p-4 flex flex-col gap-6 md:gap-4 md:p-2 md:px-4 rounded text-[14px]">
+                        <div class="md:hidden basis-[50%] flex justify-center items-center text-white">
+                            <span
+                                class="w-[60px] h-[60px] bg-blue-600 lg:shadow-xl flex justify-center items-center rounded-full text-2xl">
+                                DM
+                            </span>
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <label for="matrimonial" class="font-bold text-red-500">Votre situation matricule* :</label>
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <label for="password" class="font-bold text-red-500">Votre mot de passe* :</label>
+                            <input type="password" name="password" id="password"
+                                class="p-2 border-[1px] border-black bg-gray-200 rounded focus:outline-none focus:ring-1 focus:ring-blue-300"
+                                placeholder="Votre mot de passe">
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <label for="confirm_password" class="font-bold text-red-500">Confirmez le mot de passe*
+                                :</label>
+                            <input type="password" name="confirm_password" id="confirm_password"
+                                class="p-2 border-[1px] border-black bg-gray-200 rounded focus:outline-none focus:ring-1 focus:ring-blue-300"
+                                placeholder="Confirmez le mot de passe">
+                        </div>
+                    </div>
+                    <div class="flex md:justify-between md:p-2 md:mt-2">
+                        <button
+                            class="py-2.5 md:basis-[50%] back bg-green-600 border-white md:border-[1px] md:py-2 md:px-1 lg:py-2 lg:px-1.5 text-white rounded hover:bg-green-700 cursor-pointer ease-in duration-300"
+                            type="submit">Retour</button>
+                        <button
+                            class="ml-2 py-2.5 md:basis-[50%] event_one bg-blue-600 border-white md:border-[1px] md:py-2 md:px-1 lg:py-2 lg:px-1.5 text-white rounded hover:bg-blue-700 cursor-pointer ease-in duration-300"
+                            type="submit">Valider</button>
+                        <button
+                            class="hidden py-2.5 md:basis-[50%] event_two bg-blue-600 border-white md:border-[1px] md:py-2 md:px-1 lg:py-2 lg:px-1.5 text-white rounded hover:bg-blue-700 cursor-pointer ease-in duration-300"
+                            type="submit">Valider</button>
+                        <button
+                            class="hidden py-2.5 md:basis-[50%] event_three bg-blue-600 border-white md:border-[1px] md:py-2 md:px-1 lg:py-2 lg:px-1.5 text-white rounded hover:bg-blue-700 cursor-pointer ease-in duration-300"
+                            type="submit">Valider</button>
+                    </div>
+                </form>
+                <div class="flex justify-between text-[12px]">
+                    <a href="/home/forget" class="hover:underline hover:underline-offset-1 hover:text-blue-600">Mot
+                        de passe oublié
+                        ?</a>
+                    <a href="/" class="hover:underline hover:underline-offset-1 hover:text-blue-600">Vous avez déjà un
+                        compte ?</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/assets/js/inscription.js"></script>
+</body>
+
+</html>

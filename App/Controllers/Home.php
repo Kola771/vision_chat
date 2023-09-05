@@ -24,6 +24,10 @@ require "../App/Controllers/StoryController.php";
             require "../App/Views/Users/Beginning/login.phtml";
         }
 
+        public function inscription() {
+            require "../App/Views/Users/Beginning/inscription.phtml";
+        }
+
         public function profil() {
             require "../App/Views/Users/profil.php";
         }

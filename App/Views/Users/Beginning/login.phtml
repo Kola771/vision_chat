@@ -15,36 +15,46 @@
 </head>
 
 <body>
-    <div class="lg:max-w-[50%] lg:mt-[200px] lg:h-[500px] m-auto shadow-2xl flex lg:justify-between bg-[url('/assets/stories/six.jpg')] bg-no-repeat bg-cover rounded">
-        <div class="lg:basis-[50%] flex justify-center items-center text-white">
-            DM
+    <div
+        class="max-w-[75%] sm:max-w-[50%] mt-[130px] md:mt-[200px] md:max-w-[90%] lg:max-w-[50%] md:h-[450px] lg:h-[500px] m-auto shadow-2xl md:flex md:justify-between md:bg-[url('/assets/stories/six.jpg')] md:bg-no-repeat bg-cover rounded">
+        <div class="hidden md:basis-[50%] md:flex md:justify-center md:items-center md:text-white">
+            <span
+                class="md:w-[80px] md:h-[80px] lg:w-[100px] lg:h-[100px] md:bg-blue-600 lg:shadow-xl md:flex md:justify-center md:items-center md:rounded-full md:text-3xl">
+                DM
+            </span>
         </div>
-        <div
-            class="lg:basis-[50%] bg-gray-200 lg:rounded-l-full lg:border-t-[1px] lg:border-b-[1px] lg:border-[#eee]">
-            <div class="lg:mt-[90px] lg:mr-[10px] lg:max-w-[70%] m-auto p-1 flex flex-col">
-                <form class="flex flex-col lg:gap-4 lg:p-2 lg:px-4 rounded lg:text-[14px]">
-                    <div id="paragraph" class="mt-[-20px] hidden"></div>
-                    <div class="flex flex-col lg:gap-2">
+        <div class="md:basis-[50%] bg-gray-200 md:rounded-l-full md:border-t-[1px] md:border-b-[1px] md:border-[#eee]">
+            <div class="md:mt-[70px] lg:mt-[90px] md:mr-[10px] md:max-w-[70%] m-auto p-1 flex flex-col">
+                <form class="p-4 flex flex-col gap-6 md:gap-4 md:p-2 md:px-4 rounded text-[14px]">
+                    <div class="md:hidden basis-[50%] flex justify-center items-center text-white">
+                        <span
+                            class="w-[60px] h-[60px] bg-blue-600 lg:shadow-xl flex justify-center items-center rounded-full text-2xl">
+                            DM
+                        </span>
+                    </div>
+                    <div id="paragraph" class="md:mt-[-20px] hidden"></div>
+                    <div class="flex flex-col gap-2">
                         <label for="username" class="font-bold text-red-500">Identifiant login* :</label>
                         <input type="text" name="username" id="username"
                             class="p-2 border-[1px] border-black bg-gray-200 rounded focus:outline-none focus:ring-1 focus:ring-blue-300"
                             placeholder="Addresse électronique ou nom d'utilisateur" required>
                     </div>
-                    <div class="flex flex-col lg:gap-2">
+                    <div class="flex flex-col gap-2">
                         <label for="password" class="font-bold text-red-500">Mot de passe* :</label>
                         <input type="password" name="password" id="password"
                             class="p-2 border-[1px] border-black bg-gray-200 rounded focus:outline-none focus:ring-1 focus:ring-blue-300"
                             placeholder="Votre mot de passe">
                     </div>
-                    <div class="flex lg:justify-end lg:p-2">
+                    <div class="flex md:justify-end md:p-2">
                         <button
-                            class="lg:basis-[50%] validate bg-blue-600 border-white lg:border-[1px] lg:py-3 lg:px-1.5 text-white rounded hover:bg-blue-700 cursor-pointer ease-in duration-300"
+                            class="basis-full py-2.5 md:basis-[50%] validate bg-blue-600 border-white md:border-[1px] md:py-2 md:px-1 lg:py-3 lg:px-1.5 text-white rounded hover:bg-blue-700 cursor-pointer ease-in duration-300"
                             type="submit">Connexion</button>
                     </div>
-                    <div class="flex lg:justify-between">
-                        <a href="/home/forget" class="hover:underline hover:underline-offset-1 hover:text-blue-600">Mot de passe oublié
+                    <div class="flex justify-between">
+                        <a href="/home/forget" class="hover:underline hover:underline-offset-1 hover:text-blue-600">Mot
+                            de passe oublié
                             ?</a>
-                        <a href="/home/index" class="hover:underline hover:underline-offset-1">Inscription</a>
+                        <a href="/home/inscription" class="hover:underline hover:underline-offset-1 hover:text-blue-600">Inscription</a>
                     </div>
                 </form>
             </div>
