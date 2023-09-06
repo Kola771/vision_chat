@@ -44,7 +44,6 @@ class LoginController
      */
     public function verifyControl()
     {
-
         //Instanciation de la classe User
         $this->usermodel = new User();
         $res = $this->usermodel->verifyName($this->user_username);
@@ -67,7 +66,7 @@ class LoginController
                 $_SESSION["status"] = $res[0]["user_status"];
                 $_SESSION["situation"] = $res[0]["user_situation"];
                 echo json_encode(["route"=>"/home/space", "result"=>"good"]);
-                exit();
+                exit;
             } else {
                 echo json_encode(["error"=>"Le mot de passe est incorrect !!!"]);
                 exit;

@@ -68,6 +68,30 @@ class User extends Connexion {
     }
 
     /**
+     * verifyName0(), pour vérifier si il y a un utilisateur dans la bd ayant déjà ses éléments là
+     */
+    public function verifyName0($user_username) {
+        $this->user_username = $user_username;
+
+        $conn = $this->connect();
+
+        /**
+         * $sql, pour les requêtes vers la base de données
+         */
+        $sql = "SELECT * FROM `vision_chat`.users WHERE user_username = :username;";
+
+        /**
+         * $stmt, pour recupérer la requête préparée
+         */
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([
+            ":username" => $this->user_username
+        ]);
+        $result = $stmt->fetchAll();
+        return $result;
+    }
+
+    /**
      * verifyName(), pour vérifier si il y a un utilisateur dans la bd ayant déjà ses éléments là
      */
     public function verifyName($user_username) {
@@ -166,11 +190,10 @@ class User extends Connexion {
    /**
      * insertUser(), pour insérer dans la bd des utilisateurs
      */
-    public function insertUser($id, $firstname, $lastname, $date, $user_username, $email, $user_image, $sexe, $situation, $password, $user_role, $status, $timestamps) {
+    public function insertUser($firstname, $lastname, $date, $user_username, $email, $user_image, $sexe, $situation, $password, $user_role, $status, $timestamps) {
 
         $conn = $this->connect();
   
-        $this->id = $id;
         $this->firstname = $firstname;
         $this->lastname = $lastname;
         $this->date = $date;
@@ -187,14 +210,13 @@ class User extends Connexion {
         /**
          * $sql, pour les requêtes vers la base de données
          */
-        $sql = "INSERT INTO `vision_chat`.users VALUES(:id, :firstname, :lastname, :date, :user_username, :email, :user_image, :sexe, :situation, NULL, :password, :role, :status, :timesdate)";
+        $sql = "INSERT INTO `vision_chat`.users VALUES(NULL, :firstname, :lastname, :date, :user_username, :email, :user_image, :sexe, :situation, NULL, :password, :role, :status, :timesdate)";
         
         /**
          * $stmt, pour recupérer la requête préparée
          */
         $stmt = $conn->prepare($sql);
         $stmt->execute([
-           ":id" => $this->id,
            ":firstname" => $this->firstname,
             ":lastname" => $this->lastname,
             ":date" => $this->date,

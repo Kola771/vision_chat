@@ -2,3 +2,21 @@ body {
   background-color: rgba(210, 215, 216, 0.575);
   /* background-color: rgb(5, 42, 60); */
 }
+
+
+.over::-webkit-scrollbar {
+  background-color: #fff;
+  width: 10px;
+}
+
+/* Couleur de la poignée (thumb) */
+.over::-webkit-scrollbar-thumb {
+  background-color: #eee;
+  border: 1px solid;
+  border-radius: .1em;
+}
+
+/* Couleur de la poignée lorsqu'elle est survolée */
+.over::-webkit-scrollbar-thumb:hover {
+  background-color: #0b8bd4;
+}
