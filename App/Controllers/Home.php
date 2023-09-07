@@ -43,8 +43,9 @@ require "../App/Controllers/StoryController.php";
         }
 
         public function forget() {
-            require "../App/Views/Users/forget.php";
+            require "../App/Views/Users/Beginning/forget.phtml";
         }
+
         public function log() {
             session_start();
             session_unset();

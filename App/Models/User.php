@@ -25,6 +25,7 @@ class User extends Connexion {
     public $status;
     public $user_role;
     public $timestamps;
+    public $code;
 
     /**
      * verify(), pour vérifier si il y a un utilisateur dans la bd ayant déjà ses éléments là
@@ -232,5 +233,25 @@ class User extends Connexion {
         ]);
   
     }
+
+     // Fais une modification dans la table users plus précisement dans le champ email_code
+     public function updateCode($code, $email)
+     {
+         $conn = $this->connect();
+         $this->email = $email;
+         $this->code = $code;
+         /**
+          * $sql, pour les requêtes vers la base de données
+          */
+         $sql = "UPDATE `vision_chat`.users set `users`.number_rand = :code WHERE `users`.user_email = :email";
+         /**
+          * $stmt, pour recupérer la requête préparée
+          */
+         $stmt = $conn->prepare($sql);
+         $stmt->execute([
+             ":code" => $this->code,
+             ":email" => $this->email
+         ]);
+     }
     
 }

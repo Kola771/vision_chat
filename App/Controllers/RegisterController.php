@@ -56,15 +56,12 @@ class RegisterController
                 //Instanciation de la classe UserModel
                 $this->usermodel = new User();
                 $res = $this->usermodel->verifyMail($this->email);
-                if(count($res) > 0)
-                {
+                if (count($res) > 0) {
                     echo json_encode(["error" => "Un utilisateur utilise déjà cet e-mail !!!"]);
                 } else {
-                    if(strlen($this->user_username) >= 4)
-                    {
+                    if (strlen($this->user_username) >= 4) {
                         $resultat = $this->usermodel->verifyName0($this->user_username);
-                        if(count($resultat) > 0)
-                        {
+                        if (count($resultat) > 0) {
                             echo json_encode(["error" => "Un utilisateur utilise déjà ce pseudo !!!"]);
                         } else {
                             echo json_encode(["result" => "good"]);
@@ -76,6 +73,40 @@ class RegisterController
             } else {
                 echo json_encode(["error" => "L'email entré ne respecte pas le format requis !!!"]);
             }
+        }
+    }
+
+    public function verifyEmailInp()
+    {
+        $donnees = file_get_contents("php://input");
+        $donnees = json_decode($donnees);
+        $this->email = $this->sanitaze($donnees->email);
+        //Instanciation de la classe UserModel
+        $this->usermodel = new User();
+        $res = $this->usermodel->verifyMail($this->email);
+        $result = $this->verifyEmail();
+        if ($result) {
+            if (count($res) > 0) {
+                $code = rand(0, 1000000);
+                    $this->usermodel->updateCode($code, $this->email);
+                    $result = $this->usermodel->verifyMail($this->email);
+                    try {
+                        $to = $result[0]["user_email"];
+                        $code_randown = $result[0]["number_rand"];
+                        $subject = "Pour la réintialisation de votre mot de passe vous devez entrer le code ci-dessous.";
+                        $message = "Code de confirmation d'email : " . $code_randown;
+                        $headers = "From: DM" . "\r\n" . "CC: dmchat@gmail.com";
+                        // NB: geniusblog@gmail.com, cet email dépend de l'hébergeur sur lequel se trouve notre site et doit être valide.
+                        mail($to, $subject, $message, $headers);
+                        echo json_encode(["result" => "good"]);
+                    } catch (\Throwable $th) {
+                        echo json_encode(["result" => "Erreur subvenue lors de l'envoi du code !!!"]);
+                    }
+            } else {
+                echo json_encode(["error" => "L'email entré n'existe pas dans notre base !!!"]);
+            }
+        } else {
+            echo json_encode(["error" => "L'email entré ne respecte pas le format requis !!!"]);
         }
     }
 

@@ -24,7 +24,7 @@
             </span>
         </div>
         <div class="md:basis-[50%] bg-gray-200 md:rounded-l-full md:border-t-[1px] md:border-b-[1px] md:border-[#eee]">
-            <div class="md:mt-[70px] lg:mt-[90px] md:mr-[10px] md:max-w-[70%] m-auto p-1 flex flex-col">
+            <div class="md:mt-[120px] md:mr-[10px] md:max-w-[70%] m-auto p-1 flex flex-col">
                 <form class="p-4 flex flex-col gap-6 md:gap-4 md:p-2 md:px-4 rounded text-[14px]">
                     <div class="md:hidden basis-[50%] flex justify-center items-center text-white">
                         <span
@@ -33,34 +33,47 @@
                         </span>
                     </div>
                     <div id="paragraph" class="md:mt-[-20px] hidden"></div>
-                    <div class="flex flex-col gap-2">
-                        <label for="username" class="font-bold text-red-500">Identifiant login* :</label>
-                        <input type="text" name="username" id="username"
+                    <div class="email0 flex flex-col gap-2">
+                        <label for="email" class="font-bold text-red-500">Adresse électronique* :</label>
+                        <input type="text" name="email" id="email"
                             class="p-2 border-[1px] border-black bg-gray-200 rounded focus:outline-none focus:ring-1 focus:ring-blue-300"
                             placeholder="Addresse électronique ou nom d'utilisateur" required>
                     </div>
-                    <div class="flex flex-col gap-2">
-                        <label for="password" class="font-bold text-red-500">Mot de passe* :</label>
+                    <div class="hidden code flex flex-col gap-2">
+                        <label for="code" class="font-bold text-red-500">Code numérique* :</label>
+                        <input type="text" name="code" id="code"
+                            class="p-2 border-[1px] border-black bg-gray-200 rounded focus:outline-none focus:ring-1 focus:ring-blue-300"
+                            placeholder="Entrez le code numérique" required>
+                    </div>
+                    <div class="hidden pass1 flex flex-col gap-2">
+                        <label for="password" class="font-bold text-red-500">Nouveau mot de passe* :</label>
                         <input type="password" name="password" id="password"
                             class="p-2 border-[1px] border-black bg-gray-200 rounded focus:outline-none focus:ring-1 focus:ring-blue-300"
-                            placeholder="Votre mot de passe">
+                            placeholder="Votre nouveau mot de passe">
                     </div>
-                    <div class="flex md:justify-end md:p-2">
+                    <div class="hidden pass2 flex flex-col gap-2">
+                        <label for="confirm_password" class="font-bold text-red-500">Confirmez le nouveau mot de passe*
+                            :</label>
+                        <input type="password" name="confirm_password" id="confirm_password"
+                            class="p-2 border-[1px] border-black bg-gray-200 rounded focus:outline-none focus:ring-1 focus:ring-blue-300"
+                            placeholder="Confirmez le nouveau mot de passe">
+                    </div>
+                    <div class="hidden valid flex md:justify-end md:p-2">
                         <button
                             class="basis-full py-2.5 md:basis-[50%] validate bg-blue-600 border-white md:border-[1px] md:py-2 md:px-1 lg:py-3 lg:px-1.5 text-white rounded hover:bg-blue-700 cursor-pointer ease-in duration-300"
-                            type="submit">Connexion</button>
+                            type="submit">Valider</button>
                     </div>
                     <div class="flex justify-between">
-                        <a href="/home/forget" class="hover:underline hover:underline-offset-1 hover:text-blue-600">Mot
-                            de passe oublié
-                            ?</a>
-                        <a href="/home/inscription" class="hover:underline hover:underline-offset-1 hover:text-blue-600">Inscription</a>
+                        <a href="/" class="hover:underline hover:underline-offset-1 hover:text-blue-600">Se
+                            connecter</a>
+                        <a href="/home/inscription"
+                            class="hover:underline hover:underline-offset-1 hover:text-blue-600">Inscription</a>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-    <script src="/assets/js/login.js"></script>
+    <script src="/assets/js/forget.js"></script>
 </body>
 
 </html>
