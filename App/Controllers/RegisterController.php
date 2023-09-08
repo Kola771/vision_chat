@@ -11,6 +11,8 @@ class RegisterController
 
     public $firstname;
     public $lastname;
+    public $password;
+    public $confirm_password;
     public $date;
     public $email;
     public $user_username;
@@ -107,6 +109,87 @@ class RegisterController
             }
         } else {
             echo json_encode(["error" => "L'email entré ne respecte pas le format requis !!!"]);
+        }
+    }
+
+    public function verifyCodeInp()
+    {
+        $donnees = file_get_contents("php://input");
+        $donnees = json_decode($donnees);
+        $this->email = $this->sanitaze($donnees->email);
+        $codeInp = $this->sanitaze($donnees->code);
+        //Instanciation de la classe UserModel
+        $this->usermodel = new User();
+        $res = $this->usermodel->verifyMail($this->email);
+        $result = $this->verifyEmail();
+        if ($result) {
+            if (count($res) > 0) {
+                if($res[0]["number_rand"] === intval($codeInp))
+                {
+                    echo json_encode(["result" => "Le code est correct !!!"]);
+                } else {
+                    echo json_encode(["error" => "Le code entré n'est pas correct !!!"]);
+                }
+            } else {
+                echo json_encode(["error" => "L'email entré n'existe pas dans notre base !!!"]);
+            }
+        } else {
+            echo json_encode(["error" => "L'email entré ne respecte pas le format requis !!!"]);
+        }
+    }
+
+    public function updatePassword()
+    {
+        $donnees = file_get_contents("php://input");
+        $donnees = json_decode($donnees);
+        $this->email = $this->sanitaze($donnees->email);
+        
+        $this->password = $this->sanitaze($donnees->password);
+        $this->confirm_password = $this->sanitaze($donnees->confirm_password);
+
+        $re1 = $this->passWord($this->password);
+        $re2 = $this->passWord($this->confirm_password);
+
+        if ($re1) {
+            if ($re2) {
+                $ver = $this->verifyPassword();
+                if ($ver) {
+                    //Instanciation de la classe UserModel
+                    $this->usermodel = new User();
+                    $this->usermodel->updatePassword($this->password, $this->email);
+                    echo json_encode(["route" => "/", "result" => "good"]);
+                } else {
+                    echo json_encode(["error" => "Les mots de passes ne sont pas identiques !!!"]);
+                }
+            } else {
+                echo json_encode(["error" => "Le mot de passe inséré ne respecte pas nos critères. Il faut minimum 8 caractères. <br> Ex: xszedrftgh@2000!!!"]);
+            }
+        } else {
+            echo json_encode(["error" => "Le mot de passe inséré ne respecte pas nos critères. Il faut minimum 8 caractères contenant des chiffres. <br> Ex: xszedrftgh@2000!!!"]);
+        }
+    }
+    
+    /**
+     * passWord(), format des mots de passe qu'on accepte
+     */
+    public function passWord($data)
+    {
+        if (strlen($data) >= 8) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * verifyPassword(), pour vérifiez si les deux mot de passe que l'utilisateur entre sont corrects
+     */
+    public function verifyPassword()
+    {
+        if ($this->password === $this->confirm_password) {
+            return true;
+        } else {
+            return false;
         }
     }
 

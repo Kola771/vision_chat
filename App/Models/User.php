@@ -234,7 +234,7 @@ class User extends Connexion {
   
     }
 
-     // Fais une modification dans la table users plus précisement dans le champ email_code
+     // Fais une modification dans la table users plus précisement dans le champ number_rand
      public function updateCode($code, $email)
      {
          $conn = $this->connect();
@@ -250,6 +250,26 @@ class User extends Connexion {
          $stmt = $conn->prepare($sql);
          $stmt->execute([
              ":code" => $this->code,
+             ":email" => $this->email
+         ]);
+     }
+
+     // Fais une modification dans la table users plus précisement dans le champ user_password
+     public function updatePassword($password, $email)
+     {
+         $conn = $this->connect();
+         $this->email = $email;
+         $this->password = $password;
+         /**
+          * $sql, pour les requêtes vers la base de données
+          */
+         $sql = "UPDATE `vision_chat`.users set `users`.user_password = :user_password WHERE `users`.user_email = :email";
+         /**
+          * $stmt, pour recupérer la requête préparée
+          */
+         $stmt = $conn->prepare($sql);
+         $stmt->execute([
+             ":user_password" => password_hash($this->password, PASSWORD_DEFAULT),
              ":email" => $this->email
          ]);
      }

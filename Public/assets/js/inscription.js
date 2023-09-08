@@ -150,15 +150,15 @@ document.addEventListener("DOMContentLoaded", function () {
                     if (password.value.trim() === confirm_password.value.trim()) {
                         paragraph.classList.add("hidden");
                         let data = {
-                            firstname: firstname.value,
-                            lastname: lastname.value,
-                            date: date.value,
-                            username: username.value,
-                            useremail: useremail.value,
+                            firstname: firstname.value.trim(),
+                            lastname: lastname.value.trim(),
+                            date: date.value.trim(),
+                            username: username.value.trim(),
+                            useremail: useremail.value.trim(),
                             sexe,
-                            valSelect: valSelect.value,
-                            password: password.value,
-                            confirm_password: confirm_password.value
+                            valSelect: valSelect.value.trim(),
+                            password: password.value.trim(),
+                            confirm_password: confirm_password.value.trim()
                         }
                         data = JSON.stringify(data);
                         let options = {
