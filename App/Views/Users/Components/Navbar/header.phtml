@@ -1,0 +1,94 @@
+<?php
+@session_start();
+?>
+
+<?php if (isset($_SESSION["id"])): ?>
+
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://kit.fontawesome.com/b48549a02e.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="/assets/css/output.css">
+        <script src="/assets/js/tailwind.js"></script>
+        <?php if (isset($title)): ?>
+            <title>DM | <?= $title ?></title>
+        <?php endif; ?>
+    </head>
+
+    <body class="flex justify-between">
+        <header class="w-[25%]">
+            <aside class="w-[25%] m-0 max-h-screen border-r-[2px] border-[#eee] fixed top-0 bottom-0 overflow-y-scroll">
+                <div class="relative flex gap-2 bg-blue-600 px-2 py-4">
+                    <div class="w-[60px] h-[60px] rounded-full relative">
+                        <img src="/assets/users_pictures/<?= $_SESSION["image"] ?>"
+                            class="w-[60px] h-[60px] border-gray-400 border-2 rounded-full" alt="image">
+                        <?php if (isset($_SESSION["id"])): ?>
+                            <div class="absolute w-[10px] h-[10px] rounded-full bottom-[2px] bg-green-600 right-[5px]"></div>
+                        <?php endif; ?>
+                        <div class="w-[140px] shadow-2xl rounded">
+                            <ul class="flex flex-col gap-2 bg-gray-300 p-2 rounded">
+                                <li class="boder-black border-b-2">
+                                    <a href="#">Profil</a>
+                                </li>
+                                <li class="boder-black border-b-2">
+                                    <a href="#">Statut</a>
+                                </li>
+                                <li class="">
+                                    <a href="/login-controller/log-out">Déconnexion</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="flex text-white flex-col justify-center">
+                        <h1 class="mt-[3px]">
+                            <?= $_SESSION["username"] ?>
+                        </h1>
+                        <p class="mt-[0px] lowercase">Actif</p>
+                    </div>
+                </div>
+                <div class="bg-gray-300 px-2 py-3">
+                    <a href="#" class="w-full hover:text-blue-600">Stories</a>
+                    <div class="mt-2">
+                        <form action="#" class="flex flex-col mt-2">
+                            <input type="search" placeholder="Recherche" class="px-1 py-2 rounded">
+                        </form>
+                    </div>
+                </div>
+                <section class="flex gap-2 mt-2 boder-black border-b-2 p-1.5">
+                    <div class="basis-[20%]">
+                        <div class="w-[60px] h-[60px] rounded-full relative">
+                            <img src="/assets/story/chapter.jpg"
+                                class="w-[60px] h-[60px] border-gray-400 border-2 rounded-full" alt="image">
+                            <div class="absolute w-[10px] h-[10px] rounded-full bottom-[2px] bg-green-600 right-[5px]">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex text-black flex-col justify-center">
+                        <h3 class="capitalize text-[18px]">marcos199</h3>
+                        <p class="">Lorem ipsum dolor sit...</p>
+                    </div>
+                </section>
+                <section class="flex gap-2 mt-2 boder-black border-b-2 p-1.5">
+                    <div class="basis-[20%]">
+                        <div class="w-[60px] h-[60px] rounded-full relative">
+                            <img src="/assets/story/livre.jpg"
+                                class="w-[60px] h-[60px] border-gray-400 border-2 rounded-full" alt="image">
+                            <div class="absolute w-[10px] h-[10px] rounded-full bottom-[2px] bg-green-600 right-[5px]">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex text-black flex-col justify-center">
+                        <h3 class="capitalize text-[18px]">Geoffroy</h3>
+                        <p class="">Lorem ipsum dolor sit...</p>
+                    </div>
+                </section>
+                </div>
+            </aside>
+        </header>
+<?php else: ?>
+    <?php header("Location:/") ?>
+<?php endif; ?>

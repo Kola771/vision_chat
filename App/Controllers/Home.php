@@ -46,6 +46,14 @@ require "../App/Controllers/StoryController.php";
             require "../App/Views/Users/Beginning/forget.phtml";
         }
 
+        public function header() {
+            require "../App/Views/Users/Components/Navbar/header.phtml";
+        }
+
+        public function indexSpace() {
+            require "../App/Views/Users/Components/Pages/index.phtml";
+        }
+
         public function log() {
             session_start();
             session_unset();
