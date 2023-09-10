@@ -3,6 +3,14 @@ body {
   /* background-color: rgb(5, 42, 60); */
 }
 
+div.thanSvg {
+  display: none;
+}
+
+div.element:hover>div.thanSvg {
+  display: flex;
+}
+
 
 .over::-webkit-scrollbar {
   background-color: #fff;

@@ -20,72 +20,120 @@
     </head>
 
     <body class="flex justify-between">
-        <header class="w-[25%]">
-            <aside class="w-[25%] m-0 max-h-screen border-r-[2px] border-[#eee] fixed top-0 bottom-0 overflow-y-scroll">
-                <div class="relative flex gap-2 bg-blue-600 px-2 py-4">
-                    <div class="w-[60px] h-[60px] rounded-full relative">
+        <header class="lg:w-[25%]">
+            <aside class="lg:w-[25%] lg:m-0 lg:max-h-screen lg:border-r-[2px] lg:border-[#eee] lg:fixed lg:top-0 lg:bottom-0">
+                <div class="lg:relative flex lg:gap-2 lg:bg-blue-600 lg:px-2 lg:py-4">
+                    <div class="lg:w-[60px] lg:h-[60px] lg:rounded-full lg:relative">
                         <img src="/assets/users_pictures/<?= $_SESSION["image"] ?>"
-                            class="w-[60px] h-[60px] border-gray-400 border-2 rounded-full" alt="image">
+                            class="altImg cursor-pointer lg:w-[60px] lg:h-[60px] border-gray-400 lg:border-2 rounded-full" alt="image">
                         <?php if (isset($_SESSION["id"])): ?>
-                            <div class="absolute w-[10px] h-[10px] rounded-full bottom-[2px] bg-green-600 right-[5px]"></div>
+                            <div class="absolute lg:w-[10px] lg:h-[10px] rounded-full lg:bottom-[2px] bg-green-600 lg:right-[5px]"></div>
                         <?php endif; ?>
-                        <div class="w-[140px] shadow-2xl rounded">
-                            <ul class="flex flex-col gap-2 bg-gray-300 p-2 rounded">
-                                <li class="boder-black border-b-2">
-                                    <a href="#">Profil</a>
+                        <div class="navul hidden lg:w-[140px] lg:shadow-2xl rounded">
+                            <ul class="flex lg:flex-col bg-gray-300 lg:rounded cursor-pointer">
+                                <li class="profil boder-black border-b-2 hover:bg-gray-400 p-2">
+                                    <a href="#" class="hover:text-white">Profil</a>
                                 </li>
-                                <li class="boder-black border-b-2">
-                                    <a href="#">Statut</a>
+                                <li class="navul0 boder-black border-b-2 hover:bg-gray-400 p-2 relative">
+                                    <a href="#" class="hover:text-white">Statut</a>
+                                    <ul class="navul1 hidden flex lg:flex-col bg-gray-300 rounded cursor-pointer absolute lg:bottom-0 lg:right-0 lg:mr-[-125px] lg:top-0 lg:h-[80px] lg:w-[120px] shadow-2xl">
+                                        <li class="afficheState boder-black border-b-2 hover:bg-gray-400 p-2 hover:text-white">Activer</li>
+                                        <li class="afficheState hover:bg-gray-400 p-2 hover:text-white">Désactiver</li>
+                                    </ul>
                                 </li>
-                                <li class="">
-                                    <a href="/login-controller/log-out">Déconnexion</a>
+                                <li class="hover:bg-gray-400 p-2">
+                                    <a href="/login-controller/log-out" class="logout hover:text-white">Déconnexion</a>
                                 </li>
                             </ul>
                         </div>
                     </div>
-                    <div class="flex text-white flex-col justify-center">
-                        <h1 class="mt-[3px]">
+                    <div class="flex text-white flex-col lg:justify-center">
+                        <h1 class="lg:mt-[3px]">
                             <?= $_SESSION["username"] ?>
                         </h1>
-                        <p class="mt-[0px] lowercase">Actif</p>
+                        <p class="lg:mt-[0px] lowercase">Actif</p>
                     </div>
                 </div>
-                <div class="bg-gray-300 px-2 py-3">
-                    <a href="#" class="w-full hover:text-blue-600">Stories</a>
+                <div class="bg-gray-300 lg:px-2 lg:py-3">
+                    <a href="/home/story" class="lg:w-full hover:text-blue-600">Stories</a>
                     <div class="mt-2">
-                        <form action="#" class="flex flex-col mt-2">
-                            <input type="search" placeholder="Recherche" class="px-1 py-2 rounded">
+                        <form action="#" class="flex flex-col lg:mt-2">
+                            <input type="search" placeholder="Recherche" class="lg:px-1 lg:py-2 rounded">
                         </form>
                     </div>
                 </div>
-                <section class="flex gap-2 mt-2 boder-black border-b-2 p-1.5">
-                    <div class="basis-[20%]">
-                        <div class="w-[60px] h-[60px] rounded-full relative">
-                            <img src="/assets/story/chapter.jpg"
-                                class="w-[60px] h-[60px] border-gray-400 border-2 rounded-full" alt="image">
-                            <div class="absolute w-[10px] h-[10px] rounded-full bottom-[2px] bg-green-600 right-[5px]">
+                <div class="lg:max-h-[600px] overflow-y-scroll lg:mt-2">
+                    <section class="flex lg:gap-2 lg:mt-2 boder-black border-b-2 lg:p-1.5">
+                        <div class="lg:basis-[20%]">
+                            <div class="lg:w-[60px] lg:h-[60px] rounded-full relative">
+                                <img src="/assets/story/chapter.jpg"
+                                    class="lg:w-[60px] lg:h-[60px] border-gray-400 border-2 rounded-full" alt="image">
+                                <div class="absolute lg:w-[10px] lg:h-[10px] rounded-full lg:bottom-[2px] bg-green-600 lg:right-[5px]">
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="flex text-black flex-col justify-center">
-                        <h3 class="capitalize text-[18px]">marcos199</h3>
-                        <p class="">Lorem ipsum dolor sit...</p>
-                    </div>
-                </section>
-                <section class="flex gap-2 mt-2 boder-black border-b-2 p-1.5">
-                    <div class="basis-[20%]">
-                        <div class="w-[60px] h-[60px] rounded-full relative">
-                            <img src="/assets/story/livre.jpg"
-                                class="w-[60px] h-[60px] border-gray-400 border-2 rounded-full" alt="image">
-                            <div class="absolute w-[10px] h-[10px] rounded-full bottom-[2px] bg-green-600 right-[5px]">
+                        <div class="flex text-black flex-col lg:justify-center">
+                            <h3 class="capitalize lg:text-[18px]">marcos199</h3>
+                            <p class="">Lorem ipsum dolor sit...</p>
+                        </div>
+                    </section>
+                    <section class="flex lg:gap-2 lg:mt-2 boder-black border-b-2 lg:p-1.5">
+                        <div class="basis-[20%]">
+                            <div class="lg:w-[60px] lg:h-[60px] rounded-full relative">
+                                <img src="/assets/story/livre.jpg"
+                                    class="lg:w-[60px] lg:h-[60px] border-gray-400 border-2 rounded-full" alt="image">
+                                <div class="absolute lg:w-[10px] lg:h-[10px] rounded-full lg:bottom-[2px] bg-green-600 lg:right-[5px]">
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="flex text-black flex-col justify-center">
-                        <h3 class="capitalize text-[18px]">Geoffroy</h3>
-                        <p class="">Lorem ipsum dolor sit...</p>
-                    </div>
-                </section>
+                        <div class="flex text-black flex-col lg:justify-center">
+                            <h3 class="capitalize lg:text-[18px]">Geoffroy</h3>
+                            <p class="">Lorem ipsum dolor sit...</p>
+                        </div>
+                    </section>
+                    <section class="flex lg:gap-2 lg:mt-2 boder-black border-b-2 lg:p-1.5">
+                        <div class="basis-[20%]">
+                            <div class="lg:w-[60px] lg:h-[60px] rounded-full relative">
+                                <img src="/assets/story/story.jpg"
+                                    class="lg:w-[60px] lg:h-[60px] border-gray-400 border-2 rounded-full" alt="image">
+                                <div class="absolute lg:w-[10px] lg:h-[10px] rounded-full lg:bottom-[2px] bg-green-600 lg:right-[5px]">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex text-black flex-col lg:justify-center">
+                            <h3 class="capitalize lg:text-[18px]">Amour2002</h3>
+                            <p class="">Lorem ipsum dolor sit...</p>
+                        </div>
+                    </section>
+                    <section class="flex lg:gap-2 lg:mt-2 boder-black border-b-2 lg:p-1.5">
+                        <div class="basis-[20%]">
+                            <div class="lg:w-[60px] lg:h-[60px] rounded-full relative">
+                                <img src="/assets/story/livre.jpg"
+                                    class="lg:w-[60px] lg:h-[60px] border-gray-400 border-2 rounded-full" alt="image">
+                                <div class="absolute lg:w-[10px] lg:h-[10px] rounded-full lg:bottom-[2px] bg-green-600 lg:right-[5px]">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex text-black flex-col lg:justify-center">
+                            <h3 class="capitalize lg:text-[18px]">Tomy1994</h3>
+                            <p class="">Lorem ipsum dolor sit...</p>
+                        </div>
+                    </section>
+                    <section class="flex lg:gap-2 lg:mt-2 boder-black border-b-2 lg:p-1.5">
+                        <div class="basis-[20%]">
+                            <div class="lg:w-[60px] lg:h-[60px] rounded-full relative">
+                                <img src="/assets/story/six.jpg"
+                                    class="lg:w-[60px] lg:h-[60px] border-gray-400 border-2 rounded-full" alt="image">
+                                <div class="absolute lg:w-[10px] lg:h-[10px] rounded-full lg:bottom-[2px] bg-green-600 lg:right-[5px]">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex text-black flex-col lg:justify-center">
+                            <h3 class="capitalize lg:text-[18px]">CarlBoy</h3>
+                            <p class="">Lorem ipsum dolor sit...</p>
+                        </div>
+                    </section>
+                </div>
                 </div>
             </aside>
         </header>

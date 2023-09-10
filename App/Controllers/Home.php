@@ -54,6 +54,10 @@ require "../App/Controllers/StoryController.php";
             require "../App/Views/Users/Components/Pages/index.phtml";
         }
 
+        public function story() {
+            require "../App/Views/Users/Components/Pages/stories.phtml";
+        }
+
         public function log() {
             session_start();
             session_unset();
