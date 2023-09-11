@@ -1,15 +1,17 @@
 <?php
 @session_start();
 $title = "Stories";
+$x = "stories";
 ?>
 <?php require("../App/Views/Users/Components/Navbar/header.phtml"); ?>
-<main class="basis-[74%] p-2 flex">
+<main class="basis-[83%] p-2 flex">
     <div class="basis-[20%] element rounded-lg relative cursor-pointer">
         <img src="/assets/users_pictures/<?= $_SESSION["image"] ?>" class="h-[220px] rounded-lg" alt="livre">
         <h2 class="absolute bottom-0 left-0 text-white p-1">Ajouter une story
             <?= $_SESSION["username"] ?>
         </h2>
-        <div class="thanSvg rounded-lg absolute top-0 left-0 text-white p-1 flex justify-center items-center w-full h-[220px] bg-black opacity-60">
+        <div
+            class="thanSvg rounded-lg absolute top-0 left-0 text-white p-1 flex justify-center items-center w-full h-[220px] bg-black opacity-60">
             <svg xmlns="http://www.w3.org/2000/svg" id="clickThan" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                 stroke="currentColor" class="w-12 h-12">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
