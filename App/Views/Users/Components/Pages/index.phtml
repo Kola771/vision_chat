@@ -1,13 +1,82 @@
 <?php
-    @session_start();
-    $title = "Espace";
-    $x = "msg";
-?>
-    <?php require("../App/Views/Users/Components/Navbar/header.phtml"); ?>
-    <main class="basis-[83%]">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore nihil repudiandae exercitationem facere vero, iure ipsum blanditiis delectus, eos ut, animi veritatis vel hic dolorum minus et voluptas dolor dolorem asperiores sit error nam libero amet deserunt! Dignissimos pariatur laudantium impedit in porro, neque earum vel, accusamus, perferendis necessitatibus quae quisquam. Tempore aliquid veritatis commodi vel quos ad neque, facere rem perspiciatis rerum provident porro distinctio, earum molestias expedita, velit magnam. Aut laboriosam suscipit alias! Debitis nisi iusto necessitatibus non aut dolore minima ut earum, vero vitae consequuntur maxime aliquid magni id modi ex quidem neque quo consectetur, nihil voluptate.
-    </main>
-    <script src="/assets/js/index.js"></script>
-</body>
-</html>
+@session_start();
+$title = "Espace";
+$x = "msg";
+$chemin_image = './assets/story/chapter.jpg';
 
+// Lire le contenu de l'image en binaire
+// $code_binaire = file_get_contents($chemin_image);
+
+// // Afficher le code binaire (vous pouvez le manipuler ou l'enregistrer selon vos besoins)
+// var_dump($code_binaire);
+
+// Lire le contenu de l'image en binaire
+// $code_binaire = fread(fopen($chemin_image, 'rb'), filesize($chemin_image));
+// echo $code_binaire;
+
+?>
+<?php require("../App/Views/Users/Components/Navbar/header.phtml"); ?>
+<main class="lg:basis-[83%] lg:h-screen">
+    <div class="lg:w-[50%] mx-auto lg:mt-[7%]">
+        <div class="flex justify-between items-center">
+            <div class="flex gap-4">
+                <div class="lg:w-[110px] lg:h-[110px] lg:rounded-full lg:relative">
+                    <img src="/assets/users_pictures/<?= $_SESSION["image"] ?>"
+                        class="altImg cursor-pointer lg:w-[110px] lg:h-[110px] border-gray-400 lg:border-2 rounded-full"
+                        alt="image">
+                    <?php if (isset($_SESSION["id"])): ?>
+                        <div
+                            class="absolute lg:w-[15px] lg:h-[15px] rounded-full lg:bottom-[7px] bg-green-600 lg:right-[10px]">
+                        </div>
+                    <?php endif; ?>
+                </div>
+                <div class="flex text-black flex-col lg:justify-center">
+                    <h2 class="lg:mt-[-3px] lg:text-3xl">Bienvenu(e) sur DM</h2>
+                    <h3 class="lg:text-4xl font-bold">
+                        <?= $_SESSION["username"] ?>
+                    </h3>
+                </div>
+            </div>
+            <div
+                class="border-black border-[1px] rounded-full flex lg:justify-between lg:items-center lg:p-1.5 hover:text-blue-600">
+                <a href="#" class="lg:w-full lg:text-[14px]">Voir votre profil</a>
+            </div>
+        </div>
+        <section class="mt-10">
+            <h2 class="lg:text-3xl font-bold text-[#333]">Qu'est-ce que DM ?</h2>
+            <div class="flex lg:justify-center lg:gap-10 lg:mt-6">
+                <div class="lg:basis-[45%] rounded lg:p-4 border-gray-400 lg:border-[2px]">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="gray" class="cursor-pointer mx-auto w-32 h-32">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155" />
+                    </svg>
+                    <p class="lg:leading-loose text-justify lg:mt-[5px]">L'application DM (Direct Messaging) représente une plateforme de messagerie
+                        instantanée créée dans le
+                        but de
+                        simplifier les échanges entre utilisateurs, qu'il s'agisse de dialogues en tête-à-tête ou de
+                        discussions en
+                        groupe.</p>
+                </div>
+                <div class="lg:basis-[45%] rounded lg:p-2 border-gray-400 lg:border-[2px]">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="gray" class="cursor-pointer mx-auto w-32 h-32">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155" />
+                    </svg>
+                    <p class="lg:leading-loose text-justify lg:mt-[5px]">
+                        Dotée d'une interface conviviale et de fonctionnalités solides, DM propose une expérience de
+                        discussion
+                        fluide, vous permettant de maintenir le contact avec vos amis, collègues et proches.</p>
+                </div>
+            </div>
+        </section>
+        <div class="mt-[150px] w-full">
+            <p class="text-center">Nous espérons que vous passerez une très belle expérience sur ce réseau.</p>
+        </div>
+    </div>
+</main>
+<script src="/assets/js/index.js"></script>
+</body>
+
+</html>
