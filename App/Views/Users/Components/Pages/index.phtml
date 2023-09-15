@@ -2,17 +2,6 @@
 @session_start();
 $title = "Espace";
 $x = "msg";
-$chemin_image = './assets/story/chapter.jpg';
-
-// Lire le contenu de l'image en binaire
-// $code_binaire = file_get_contents($chemin_image);
-
-// // Afficher le code binaire (vous pouvez le manipuler ou l'enregistrer selon vos besoins)
-// var_dump($code_binaire);
-
-// Lire le contenu de l'image en binaire
-// $code_binaire = fread(fopen($chemin_image, 'rb'), filesize($chemin_image));
-// echo $code_binaire;
 
 ?>
 <?php require("../App/Views/Users/Components/Navbar/header.phtml"); ?>
@@ -30,7 +19,7 @@ $chemin_image = './assets/story/chapter.jpg';
                         </div>
                     <?php endif; ?>
                 </div>
-                <div class="flex text-black flex-col lg:justify-center">
+                <div class="flex text-black lg:flex-col lg:justify-center">
                     <h2 class="lg:mt-[-3px] lg:text-3xl">Bienvenu(e) sur DM</h2>
                     <h3 class="lg:text-4xl font-bold">
                         <?= $_SESSION["username"] ?>
@@ -38,14 +27,14 @@ $chemin_image = './assets/story/chapter.jpg';
                 </div>
             </div>
             <div
-                class="border-black border-[1px] rounded-full flex lg:justify-between lg:items-center lg:p-1.5 hover:text-blue-600">
+                class="border-black border-[1px] lg:rounded-full flex lg:justify-between lg:items-center lg:p-1.5 hover:text-blue-600">
                 <a href="#" class="lg:w-full lg:text-[14px]">Voir votre profil</a>
             </div>
         </div>
         <section class="mt-10">
             <h2 class="lg:text-3xl font-bold text-[#333]">Qu'est-ce que DM ?</h2>
             <div class="flex lg:justify-center lg:gap-10 lg:mt-6">
-                <div class="lg:basis-[45%] rounded lg:p-4 border-gray-400 lg:border-[2px]">
+                <div class="lg:basis-[45%] lg:rounded lg:p-4 border-gray-400 lg:border-[2px]">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="gray" class="cursor-pointer mx-auto w-32 h-32">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -58,7 +47,7 @@ $chemin_image = './assets/story/chapter.jpg';
                         discussions en
                         groupe.</p>
                 </div>
-                <div class="lg:basis-[45%] rounded lg:p-2 border-gray-400 lg:border-[2px]">
+                <div class="lg:basis-[45%] lg:rounded lg:p-2 border-gray-400 lg:border-[2px]">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="gray" class="cursor-pointer mx-auto w-32 h-32">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -71,8 +60,8 @@ $chemin_image = './assets/story/chapter.jpg';
                 </div>
             </div>
         </section>
-        <div class="mt-[150px] w-full">
-            <p class="text-center">Nous espérons que vous passerez une très belle expérience sur ce réseau.</p>
+        <div class="lg:mt-[12%] lg:w-full">
+            <p class="text-center font-bold text-[#333]">Nous espérons que vous passerez une très belle expérience sur ce réseau.</p>
         </div>
     </div>
 </main>

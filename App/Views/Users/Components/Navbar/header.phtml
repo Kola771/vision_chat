@@ -27,31 +27,51 @@
                 class="lg:w-[16%] lg:m-0 lg:max-h-screen lg:border-r-[2px] lg:border-[#eee] lg:fixed lg:top-0 lg:bottom-0">
                 <div class="lg:relative flex flex-col lg:gap-1 bg-gradient-to-r from-blue-600 to-blue-300 lg:px-2 lg:py-2">
                     <div class="flex gap-2 mx-auto w-[95%]">
-                        <div class="lg:w-[40px] lg:h-[40px] lg:rounded-full lg:relative">
+                        <div class="lg:w-[45px] lg:h-[45px] lg:rounded-full lg:relative">
                             <img src="/assets/users_pictures/<?= $_SESSION["image"] ?>"
-                                class="altImg cursor-pointer lg:w-[40px] lg:h-[40px] border-gray-400 lg:border-2 rounded-full"
+                                class="altImg cursor-pointer lg:w-[45px] lg:h-[45px] border-gray-400 lg:border-2 rounded-full"
                                 alt="image">
                             <?php if (isset($_SESSION["id"])): ?>
                                 <div
                                     class="absolute lg:w-[8px] lg:h-[8px] rounded-full lg:bottom-[2px] bg-green-600 lg:right-[2px]">
                                 </div>
                             <?php endif; ?>
-                            <div class="navul hidden lg:w-[140px] lg:shadow-2xl rounded">
+                            <div class="navul hidden lg:w-[240px] lg:shadow-2xl rounded">
                                 <ul class="flex lg:flex-col bg-gray-300 lg:rounded cursor-pointer">
-                                    <li class="profil boder-black border-b-2 hover:bg-gray-400 p-2">
+                                    <li class="profil boder-black border-b-2 hover:bg-gray-400 p-2 flex gap-2 items-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M22 10.5h-6m-2.25-4.125a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zM4 19.235v-.11a6.375 6.375 0 0112.75 0v.109A12.318 12.318 0 0110.374 21c-2.331 0-4.512-.645-6.374-1.766z" />
+                                        </svg>
                                         <a href="#" class="hover:text-white">Profil</a>
                                     </li>
                                     <li class="navul0 boder-black border-b-2 hover:bg-gray-400 p-2 relative">
-                                        <a href="#" class="hover:text-white">Statut</a>
+                                        <span class="flex gap-2 items-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                            </svg>
+
+                                            <a href="#" class="hover:text-white">Statut</a>
+                                        </span>
                                         <ul
-                                            class="navul1 hidden flex lg:flex-col bg-gray-300 rounded cursor-pointer absolute lg:bottom-0 lg:right-0 lg:mr-[-125px] lg:top-0 lg:h-[80px] lg:w-[120px] shadow-2xl">
+                                            class="navul1 hidden flex lg:flex-col bg-gray-300 rounded cursor-pointer absolute lg:bottom-0 lg:right-0 lg:mr-[-185px] lg:top-0 lg:h-[80px] lg:w-[180px] shadow-2xl">
                                             <li
                                                 class="afficheState boder-black border-b-2 hover:bg-gray-400 p-2 hover:text-white">
                                                 Activer</li>
                                             <li class="afficheState hover:bg-gray-400 p-2 hover:text-white">Désactiver</li>
                                         </ul>
                                     </li>
-                                    <li class="hover:bg-gray-400 p-2">
+                                    <li class="hover:bg-gray-400 p-2 flex gap-2 items-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
+                                        </svg>
                                         <a href="/login-controller/log-out" class="logout hover:text-white">Déconnexion</a>
                                     </li>
                                 </ul>
@@ -70,7 +90,7 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                     stroke="currentColor" class="text-gray-400 basis-[10%] w-4 h-4">
                                     <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                                        d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.194 5.196a7.5 7.5 0 0010.607 10.607z" />
                                 </svg>
                                 <input type="search" placeholder="Recherchez un utilisateur"
                                     class="basis-[90%] lg:px-1 lg:py-1 rounded-lg focus:outline-none focus:ring-0">
@@ -79,7 +99,8 @@
                     </div>
                 </div>
                 <div class="lg:px-2 lg:py-3 flex justify-between lg:border-b-[1px] lg:border-gray-400">
-                    <div class="border border-2 rounded-full lg:basis-[40%] flex lg:justify-between lg:items-center lg:p-0.5 <?= $x== 'msg' ? 'text-blue-600' : 'text-gray-600' ?> hover:text-blue-600">
+                    <div
+                        class="border border-2 rounded-full lg:basis-[40%] flex lg:justify-between lg:items-center lg:p-0.5 <?= $x == 'msg' ? 'text-blue-600' : 'text-gray-600' ?> hover:text-blue-600">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -87,7 +108,8 @@
                         </svg>
                         <a href="/home/index-space" class="lg:w-full lg:text-[12px]">Conversations</a>
                     </div>
-                    <div class="border border-2 rounded-full lg:basis-[40%] flex lg:justify-between lg:items-center lg:p-0.5 <?= $x== 'stories' ? 'text-blue-600' : 'text-gray-600' ?> hover:text-blue-600">
+                    <div
+                        class="border border-2 rounded-full lg:basis-[40%] flex lg:justify-between lg:items-center lg:p-0.5 <?= $x == 'stories' ? 'text-blue-600' : 'text-gray-600' ?> hover:text-blue-600">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -101,7 +123,8 @@
                     Conversations récentes
                 </div>
                 <div class="lg:max-h-[735px] overflow-y-scroll">
-                    <section class="flex lg:gap-1 lg:mt-2 boder-black border-b-2 lg:p-1.5">
+                    <section
+                        class="flex lg:gap-1 messages boder-black border-b-2 lg:p-1.5 cursor-pointer hover:bg-gray-200">
                         <div class="lg:basis-[20%]">
                             <div class="lg:w-[50px] lg:h-[50px] rounded-full relative">
                                 <img src="/assets/story/chapter.jpg"
@@ -116,7 +139,8 @@
                             <p class="text-[13px]">Lorem ipsum dolor sit...</p>
                         </div>
                     </section>
-                    <section class="flex lg:gap-1 lg:mt-2 boder-black border-b-2 lg:p-1.5">
+                    <section
+                        class="flex lg:gap-1 messages boder-black border-b-2 lg:p-1.5 cursor-pointer hover:bg-gray-200">
                         <div class="basis-[20%]">
                             <div class="lg:w-[50px] lg:h-[50px] rounded-full relative">
                                 <img src="/assets/story/livre.jpg"
@@ -131,7 +155,8 @@
                             <p class="text-[13px]">Lorem ipsum dolor sit...</p>
                         </div>
                     </section>
-                    <section class="flex lg:gap-1 lg:mt-2 boder-black border-b-2 lg:p-1.5">
+                    <section
+                        class="flex lg:gap-1 messages boder-black border-b-2 lg:p-1.5 cursor-pointer hover:bg-gray-200">
                         <div class="basis-[20%]">
                             <div class="lg:w-[50px] lg:h-[50px] rounded-full relative">
                                 <img src="/assets/story/story.jpg"
@@ -146,7 +171,8 @@
                             <p class="text-[13px]">Lorem ipsum dolor sit...</p>
                         </div>
                     </section>
-                    <section class="flex lg:gap-1 lg:mt-2 boder-black border-b-2 lg:p-1.5">
+                    <section
+                        class="flex lg:gap-1 messages boder-black border-b-2 lg:p-1.5 cursor-pointer hover:bg-gray-200">
                         <div class="basis-[20%]">
                             <div class="lg:w-[50px] lg:h-[50px] rounded-full relative">
                                 <img src="/assets/story/livre.jpg"
@@ -161,7 +187,8 @@
                             <p class="text-[13px]">Lorem ipsum dolor sit...</p>
                         </div>
                     </section>
-                    <section class="flex lg:gap-1 lg:mt-2 boder-black border-b-2 lg:p-1.5">
+                    <section
+                        class="flex lg:gap-1 messages boder-black border-b-2 lg:p-1.5 cursor-pointer hover:bg-gray-200">
                         <div class="basis-[20%]">
                             <div class="lg:w-[50px] lg:h-[50px] rounded-full relative">
                                 <img src="/assets/story/six.jpg"

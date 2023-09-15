@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let navul1 = document.querySelector(".navul1");
     let profil = document.querySelector(".profil");
     let logout = document.querySelector(".logout");
+    let messages = document.querySelectorAll(".messages");
     let afficheState = document.querySelectorAll(".afficheState");
     let x = 0;
     altImg.addEventListener("click", (e) => {
@@ -33,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
             navul1.classList.add("hidden")
             x = 0;
     })
-    logout.addEventListener("mouseleave", (e) => {
+    logout.addEventListener("click", (e) => {
         e.preventDefault();
             navul.classList.add("hidden")
             navul1.classList.add("hidden")
@@ -57,4 +58,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.log(clickThan);
         })
     }
+
+    messages.forEach(el => {
+        el.addEventListener("click", (e) => {
+            e.preventDefault();
+            console.log(el);
+            window.location.href = "/sms-controller/index";
+        })
+    })
 })
